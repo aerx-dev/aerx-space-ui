@@ -17,7 +17,7 @@ const SectionTwo: React.FC = () => {
     return (
         <Box>
             <Container maxWidth="container.xlg">
-            <Box display='flex' alignItems="center" py="20" flexDirection="row" marginRight='95px' marginLeft="95px">
+            <Box display='flex' alignItems="center" py="30" flexDirection="row" marginRight='95px' marginLeft="95px">
                
                 <Box width={739} className='earn-more'>
                     <Heading fontSize='6xl' color='#322E65'>

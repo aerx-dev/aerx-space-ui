@@ -1,6 +1,6 @@
 import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 
-export interface UserState {
+export interface ImagesState {
   email: string
   frame:string
   polygon:string
@@ -21,13 +21,21 @@ export interface UserState {
   frame2:string
   frame3:string
   logo:string
-
+  rectangle:string
+  groupP1:string
+  groupP2:string
+  ellipse1:string
+  ellipse2:string
+  ellipse3:string
+  ellipse4:string
+  logoP:string
+  frameP1:string
+  frameP2:string
+  groupLp1:string
+  groupLp2:string
 }
 
-/**
- * Default state object with initial values.
- */
-const initialState: UserState = {
+const initialState: ImagesState = {
   email: 'sulhadin@gmail.com',
   frame:"../Rectangle 3251.png",
   polygon:"../Polygon 4.png",
@@ -51,15 +59,23 @@ const initialState: UserState = {
   fly3:"../Fly æ 3.png ",
   star:"../star.svg ",
 
-  logo:"../landingPage/aerx_logo-removebg-preview 1 (Traced).svg"
+  logo:"../landingPage/aerx_logo-removebg-preview 1 (Traced).svg",
+
+  rectangle:"../Rectangle 3212.png",
+  groupP1:"../Group 14133.png",
+  groupP2:"../Group 14134.png",
+  ellipse1:"Ellipse 725.png",
+  ellipse2:"Ellipse 724.png",
+  ellipse3:"Ellipse 702.svg",
+  logoP:"../aerx_logo-removebg-preview 1 (Traced).svg",
+  frameP1:"../Frame 14040.png",
+  frameP2:"../Frame 14042.png",
+  groupLp1:"../Rectangle 3526.png",
+  groupLp2:"../Rectangle 3526.png",
+  ellipse4:"../Ellipse 781.png"
 } as const;
 
-/**
- * Create a slice as a reducer containing actions.
- *
- * In this example actions are included in the slice. It is fine and can be
- * changed based on your needs.
- */
+
 export const imageSlice = createSlice({
   name: 'images',
   initialState,
@@ -73,10 +89,8 @@ export const imageSlice = createSlice({
   },
 });
 
-// A small helper of user state for `useSelector` function.
-export const getUserState = (state: { images: UserState }) => state.images;
 
-// Exports all actions
+export const getUserState = (state: { images: ImagesState }) => state.images;
 export const { setImages } = imageSlice.actions;
 
 export default imageSlice.reducer;
