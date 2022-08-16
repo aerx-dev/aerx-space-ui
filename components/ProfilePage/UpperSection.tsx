@@ -19,7 +19,13 @@ import { getUserState, setImages } from "../../store/slices/imageSlices";
 import LowerTag from "./LowerTag";
 
 type Props = {};
-
+const settings = {
+  dots: true,
+  infinit: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
 const UpperSection = (props: Props) => {
   const dispatch = useDispatch();
   const {
@@ -60,92 +66,104 @@ const UpperSection = (props: Props) => {
   });
 
   return (
-    <SimpleGrid >
+    <SimpleGrid>
+      <Box bgColor="#191919"  h="1080px">
       <Box
         className="UpperSection"
         width="376px"
         height="434px"
         borderTopLeftRadius="80px 80px"
+        // bgColor="#191919"
       >
-        <Image
-          src={rectangle}
-          bgColor="black"
-          zIndex="-11"
-          position="absolute"
-        />
-        <Box>
-          <Center mt={8}>
-            <Image width={16} height={16} src={logoP} position="absolute" />
-          </Center>
-          <Flex>
-            <Box display="flex" flexDirection="column" px={2}>
-              <Image width={10} height={10} src={groupP1} border="2px" />
-              <Image
-                width={10}
-                height={10}
-                src={ellipse1}
-                border="2px"
-                borderColor="gray.200"
-                borderRadius="100%"
-                my={2}
-              />
-              <Image width={10} height={10} src={groupP2} border="2px" />
-              <Image
-                width={10}
-                height={10}
-                src={ellipse2}
-                border="2px"
-                borderColor="gray.200"
-                borderRadius="100%"
-                my={2}
-              />
-            </Box>
-            <Spacer />
-            <Box>
-              <Center marginTop={280}>
-                <Heading
-                  fontSize="4xl"
-                  color="#FFFFFF"
-                  fontFamily="Poppins"
-                  fontWeight={700}
-                >
-                  Pavel Dantsev
-                </Heading>
-              </Center>
-              <Center>
+        <Flex
+          bgImage="url('../Rectangle 3212.png')"
+          bgRepeat="no-repeat"
+          bgPosition="60% 7%"
+          bgColor="#191919"
+          w="376px"
+          h="1080px"
+        >
+          <Flex flexDirection="column" gap="16px" ml="24px" mt="32px">
+            <Image width={10} height={10} src={groupP1} border="2px" />
+            <Image
+              width={10}
+              height={10}
+              src={ellipse1}
+              border="2px"
+              borderColor="gray.200"
+              borderRadius="100%"
+      
+            />
+            <Image width={10} height={10} src={groupP2} border="2px" />
+            <Image
+              width={10}
+              height={10}
+              src={ellipse2}
+              border="2px"
+              borderColor="gray.200"
+              borderRadius="100%"
+            
+            />
+          </Flex>
+          {/* end */}
+          <Flex flexDirection="column" alignItems="center" mx="auto">
+            <Image width={16} height={16} src={logoP} mt="14px" />
+
+            <Box mt="232px">
+              <Heading
+                fontSize="32px"
+                color="#FFFFFF"
+                fontFamily="Poppins"
+                fontWeight={700}
+                fontStyle="normal"
+                lineHeight="100%"
+              >
+                Pavel Dantsev
+              </Heading>
+
+              <Flex alignItems="center" flexDirection="column">
                 <Text
-                  fontSize="2xl"
+                  fontSize="18px"
+                  fontFamily="Poppins"
                   fontStyle="italic"
                   color="#FFFFFFB2"
                   fontWeight={400}
+                  letterSpacing="-0.02em"
+                  marginTop="8px"
                 >
                   pashq.aerx
                 </Text>
-              </Center>
-              <Center>
-                <Image src={ellipse3} marginRight={2} />
-                <Text color="#FFFFFF80">Aura: 2k</Text>
-              </Center>
-            </Box>
-            <Spacer />
-            <Box display="flex" flexDirection="column" px={2}>
-              <Image src={frameP1} />
-              <Image src={frameP2} />
-              {/* <Image width={10} height={10} src={groupP2} border='2px'  />
-          <Image width={10} height={10} src={ellipse2} border='2px'  borderColor='gray.200' borderRadius="100%"  my={2}/> */}
+
+                <Flex>
+                  <Image src={ellipse3} marginRight={2} />
+                  <Text
+                    color="#FFFFFF80"
+                    fontFamily="Poppins"
+                    fontWeight="500"
+                    fontSize="14px"
+                  >
+                    Aura: 2k
+                  </Text>
+                </Flex>
+              </Flex>
             </Box>
           </Flex>
-        </Box>
+          {/* end */}
+          <Flex flexDirection="column" gap="32px" mr="21px" mt="32px">
+            <Image src={frameP1} />
+            <Image src={frameP2} />
+          </Flex>
+          {/* end */}
+        </Flex>
       </Box>
       {/* end */}
-      <Box bgColor="black" width="376px">
         <Box
           className="UpperSection"
-          bgColor="#1F1F1F;
-          "
-          borderRadius="40px 40px"
-          width="376px"
-          // height=""
+          bgColor="#1F1F1F"
+          height="651px"
+          borderRadius="50px 50px"
+          width="379px"
+          
         >
           <Box>
             <Center>
@@ -158,50 +176,105 @@ const UpperSection = (props: Props) => {
           {/* end */}
           <Box>
             <Text
-              ml="24px"
-              mt="18px"
-              fontWeight="400"
+              marginLeft="24px"
+              marginTop="12px"
+              fontWeight="500"
               fontSize="16px"
               color="rgba(255, 255, 255, 0.3);"
               height={21}
+              fontFamily="Poppins"
             >
               Circles
             </Text>
+
             <Flex
               justify="space-between"
+              flexGrow="2"
               flexDirection="row"
-              ml={2}
+              marginLeft="27px"
               mt={4}
               overflow="hidden"
+              flex="auto"
             >
-              <Flex flexDirection="column" alignItems="center">
-                <Image src={ellipse4} width="48px" mx={3} />
-                <Text fontSize="16px" fontWeight="400" color="#ffffff">
+              <Flex flexDirection="column" alignItems="center" width="auto">
+                <Image
+                  src={ellipse4}
+                  width="48px"
+                  borderRadius="100%"
+                  mb="8px"
+                />
+                <Text
+                  fontSize="16px"
+                  fontFamily="Poppins"
+                  h="48px"
+                  fontWeight="400"
+                  color="#ffffff"
+                >
                   Work
                 </Text>
               </Flex>
 
-              <Flex flexDirection="column" alignItems="center">
-                <Image src={ellipse5} width="48px" mx={3} />
-                <Text fontSize="16px" fontWeight="400" color="#ffffff">
+              <Flex flexDirection="column" alignItems="center" width="auto">
+                <Image
+                  src={ellipse4}
+                  width="48px"
+                  borderRadius="100%"
+                  mb="8px"
+                />
+                <Text
+                  fontSize="16px"
+                  fontFamily="Poppins"
+                  h="48px"
+                  fontWeight="400"
+                  color="#ffffff"
+                >
                   Family
                 </Text>
               </Flex>
-              <Flex flexDirection="column" alignItems="center">
-                <Image src={ellipse4} width="48px" mx={3} />
-                <Text fontSize="16px" fontWeight="400" color="#ffffff">
+              <Flex flexDirection="column" alignItems="center" width="auto">
+                <Image
+                  src={ellipse5}
+                  width="48px"
+                  h="48px"
+                  borderRadius="100%"
+                  mb="8px"
+                />
+                <Text
+                  fontSize="16px"
+                  fontFamily="Poppins"
+                  fontWeight="400"
+                  color="#ffffff"
+                >
                   Friends
                 </Text>
               </Flex>
-              <Flex flexDirection="column" alignItems="center">
-                <Image src={ellipse5} width="48px" mx={3} />
-                <Text fontSize="16px" fontWeight="400" color="#ffffff">
+              <Flex flexDirection="column" alignItems="center" width="auto">
+                <Image
+                  src={ellipse4}
+                  width="48px"
+                  h="48px"
+                  borderRadius="100%"
+                  mb="8px"
+                />
+                <Text
+                  fontSize="16px"
+                  fontFamily="Poppins"
+                  fontWeight="400"
+                  color="#ffffff"
+                >
                   Followers
                 </Text>
               </Flex>
-              <Flex flexDirection="column" alignItems="center">
-                <Image src={ellipse5} width="48px" mx={3} />
-                <Text fontSize="16px" fontWeight="400" color="#ffffff">
+              <Flex flexDirection="column" alignItems="center" width="autonp">
+                <Image src={ellipse4} width="48px" mb="8px" />
+                <Text
+                  fontSize="16px"
+                  fontFamily="Poppins"
+                  fontWeight="400"
+                  h="48px"
+                  borderRadius="100%"
+                  color="#ffffff"
+                >
                   Followed
                 </Text>
               </Flex>
@@ -211,11 +284,11 @@ const UpperSection = (props: Props) => {
           <Box
             bgColor="#242424"
             maxWidth="376px"
-            height="478px"
+            // height="478px"
             marginLeft="0"
             borderRadius="40px 40px"
             zIndex={-1}
-            marginTop={23}
+            marginTop="12px"
           >
             <Center>
               <Image src={"Rectangle 3526.png"} mt="12px" />
@@ -224,17 +297,24 @@ const UpperSection = (props: Props) => {
               <Image src={"Rectangle 3526.png"} mt="4px" />
             </Center>
             <Text
-              ml="24px"
-              mt="32px"
-              fontWeight="400"
+              marginLeft="24px"
+              marginTop="12px"
+              fontWeight="500"
               fontSize="16px"
+              fontFamily="Poppins"
               color="rgba(255, 255, 255, 0.3);"
             >
               Wallet
             </Text>
 
             <Flex ml="24px" mt="16px" alignItems="center">
-              <Text fontSize="24px" fontWeight="700" color="#ffffff" mr="44px">
+              <Text
+                fontSize="24px"
+                fontWeight="700"
+                color="#ffffff"
+                fontFamily="Poppins"
+                mr="44px"
+              >
                 12,786 AEX
               </Text>
               <Flex>
@@ -289,17 +369,24 @@ const UpperSection = (props: Props) => {
 
               <Flex mt="32px" ml="24px" alignItems="center">
                 <Text
-                  fontWeight="400"
+                  fontWeight="500"
                   fontSize="16px"
                   color="rgba(255, 255, 255, 0.3);"
                   mr="234px"
+                  fontFamily="Poppins"
                 >
                   Values
                 </Text>
                 <Flex>
                   <Image src={dot} alt="" w="8px" h="8px" mr="8px" />
-                  <Image src={dot} alt="" w="8px" h="8px" mr="8px" />
-                  <Image src={dot} alt="" w="8px" h="8px" />
+                  <Image
+                    src={" Rectangle blank.png"}
+                    alt=""
+                    w="8px"
+                    h="8px"
+                    mr="8px"
+                  />
+                  <Image src={" Rectangle blank.png "} alt="" w="8px" h="8px" />
                 </Flex>
               </Flex>
               <Flex mt="20px" ml="24px" overflow="hidden">
@@ -312,6 +399,7 @@ const UpperSection = (props: Props) => {
                       color="#ffffff"
                       position="absolute"
                       marginLeft="32px"
+                      fontFamily="Poppins"
                     >
                       Art
                     </Text>
@@ -323,6 +411,7 @@ const UpperSection = (props: Props) => {
                     left={25}
                     fontSize="18px"
                     fontWeight={600}
+                    fontFamily="Poppins"
                   >
                     NFT Name
                   </Text>
@@ -333,6 +422,7 @@ const UpperSection = (props: Props) => {
                     color="#ffffff"
                     fontWeight={400}
                     fontSize="16px"
+                    fontFamily="Poppins"
                   >
                     24,6 aex
                   </Text>
@@ -352,6 +442,7 @@ const UpperSection = (props: Props) => {
                       color="#ffffff"
                       position="absolute"
                       marginLeft="32px"
+                      fontFamily="Poppins"
                     >
                       Ticket
                     </Text>
@@ -363,6 +454,7 @@ const UpperSection = (props: Props) => {
                     left={25}
                     fontSize="18px"
                     fontWeight={600}
+                    fontFamily="Poppins"
                   >
                     NFT Name
                   </Text>
@@ -373,6 +465,7 @@ const UpperSection = (props: Props) => {
                     color="#ffffff"
                     fontWeight={400}
                     fontSize="16px"
+                    fontFamily="Poppins"
                   >
                     24,6 aex
                   </Text>
@@ -392,6 +485,7 @@ const UpperSection = (props: Props) => {
                       color="#ffffff"
                       position="absolute"
                       marginLeft="32px"
+                      fontFamily="Poppins"
                     >
                       Art
                     </Text>
@@ -403,6 +497,7 @@ const UpperSection = (props: Props) => {
                     left={25}
                     fontSize="18px"
                     fontWeight={600}
+                    fontFamily="Poppins"
                   >
                     NFT Name
                   </Text>
@@ -413,6 +508,7 @@ const UpperSection = (props: Props) => {
                     color="#ffffff"
                     fontWeight={400}
                     fontSize="16px"
+                    fontFamily="Poppins"
                   >
                     24,6 aex
                   </Text>
@@ -560,7 +656,6 @@ const UpperSection = (props: Props) => {
               width="376px"
               height="112px"
               marginLeft="0"
-              // borderBottomStartRadius="50px"
               borderTopRadius="50px"
               zIndex="3"
             >
@@ -583,13 +678,16 @@ const UpperSection = (props: Props) => {
                   </Flex>
                 </Box>
                 <Text
-                  color="white"
+                  color="#ffffff"
                   marginTop={-2}
                   marginLeft={8}
                   position="absolute"
                   backgroundColor="red"
                   px={2}
                   borderRadius="100%"
+                  fontFamily="Poppins"
+                  fontWeight="500"
+                  fontSize="14px"
                 >
                   3
                 </Text>
@@ -617,7 +715,8 @@ const UpperSection = (props: Props) => {
           {/* end */}
         </Box>
         {/* end */}
-      </Box>
+    </Box>
+      
     </SimpleGrid>
   );
 };

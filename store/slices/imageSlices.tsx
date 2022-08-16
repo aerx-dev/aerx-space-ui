@@ -102,7 +102,8 @@ const initialState: ImagesState = {
   rectangleP2:"../Rectangle 3422.png",
   rectangleP3:"../Rectangle 3421.png",
   rectangleP4:"../Rectangle 3527.png",
-  ellipse5:"../ellipse 782.png",
+  ellipse5:"../Ellipse 782.png",
+  
 
 
 

@@ -8,6 +8,12 @@ import { getUserState, setImages } from "../../store/slices/imageSlices";
 const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { logo } = useSelector(getUserState);
+
+  function authentication () {
+    console.log('Welcome to arex')
+  }
+
+
   return (
     <Container maxWidth="1921px">
       <Box
@@ -33,7 +39,7 @@ const Header: React.FC = () => {
           </Text>
         </Box>
         <Box display="flex">
-          <Button bgColor="#8D00FF" borderRadius={50} color="white">
+          <Button bgColor="#8D00FF" borderRadius={50} color="white" onClick={authentication}>
             Login/Register
           </Button>
         </Box>
