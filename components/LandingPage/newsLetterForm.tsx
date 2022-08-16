@@ -29,7 +29,7 @@ const NewsLetterForm: React.FC = () => {
     <Box className='form'>
         <Image width='185px' src={saly2} className='saly2-b'/>
         <Container maxWidth="container.xlg">
-        <Box display='flex' alignItems="center" py="10" flexDirection="row" marginRight='95px' marginLeft="95px">
+        <Box display='flex' alignItems="center" py="30" flexDirection="row" marginRight='95px' marginLeft="95px">
             <Box ml={0} width={615} mr={4} >
                 <Image width='285px' src={saly1} className='saly1-b'/>
             </Box>

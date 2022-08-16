@@ -33,9 +33,24 @@ export interface ImagesState {
   frameP2:string
   groupLp1:string
   groupLp2:string
+  rectangleP1:string
+  download:string
+  upload:string
+  framep3:string
+  plant:string
+  groupLp3:string
+  dot:string
+  ticketStar:string
+  rectangleP2:string
+  rectangleP3:string
+  rectangleP4:string
+  ellipse5:string
 }
 
 const initialState: ImagesState = {
+
+// landing page images
+
   email: 'sulhadin@gmail.com',
   frame:"../Rectangle 3251.png",
   polygon:"../Polygon 4.png",
@@ -59,6 +74,8 @@ const initialState: ImagesState = {
   fly3:"../Fly æ 3.png ",
   star:"../star.svg ",
 
+// profile page images
+
   logo:"../landingPage/aerx_logo-removebg-preview 1 (Traced).svg",
 
   rectangle:"../Rectangle 3212.png",
@@ -72,7 +89,25 @@ const initialState: ImagesState = {
   frameP2:"../Frame 14042.png",
   groupLp1:"../Rectangle 3526.png",
   groupLp2:"../Rectangle 3526.png",
-  ellipse4:"../Ellipse 781.png"
+  ellipse4:"../Ellipse 781.png",
+  rectangleP1:"../Rectangle 3526.png",
+  download:"../Download.png",
+  upload:"../Upload.png",
+  framep3:"../Frame 5556.png",
+  plant:"../plant 1.png",
+
+  groupLp3:"../Group 14262.png",
+  dot:"Rectangle 3396.png",
+  ticketStar:"Ticket Star.png",
+  rectangleP2:"../Rectangle 3422.png",
+  rectangleP3:"../Rectangle 3421.png",
+  rectangleP4:"../Rectangle 3527.png",
+  ellipse5:"../ellipse 782.png",
+
+
+
+
+
 } as const;
 
 

@@ -20,7 +20,7 @@ const SectionOne: React.FC = () => {
         <Box>
             <Container maxWidth="container.xlg" >
             <WithDots>
-            <Box display='flex' alignItems="center" my="20" flexDirection="row" marginRight='95px' marginLeft="95px">
+            <Box display='flex' alignItems="center" my="30" flexDirection="row" marginRight='95px' marginLeft="95px">
                 <Box mr={0} width={585}>
                     <Image  height='237px' src={group2} position='absolute' className='group1-b'/>
                     <Image  height='237px' src={group3} position='absolute' className='group2-b'/>

@@ -1,6 +1,7 @@
 import React from 'react'
-import LowerSection  from "./Crcles"
+
 import UpperSection  from "./UpperSection"
+import LowerSection from "./Crcles"
 
 type Props = {}
 
@@ -8,7 +9,7 @@ const index = (props: Props) => {
   return (
     <>
         <UpperSection />
-        <LowerSection/>
+        <LowerSection />
     </>
   )
 }

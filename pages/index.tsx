@@ -6,7 +6,7 @@ const landingPage = () => {
 
     return (
         
-        <div className="landing">
+        <div className="landing" >
         <LandingPage />
         </div>
     );
