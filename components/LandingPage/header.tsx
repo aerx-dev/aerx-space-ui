@@ -1,50 +1,69 @@
 import React from "react";
-import { Box, Button, Image, Text, Container } from "@chakra-ui/react";
+import { Box, Button, Image, Text, Container,Flex } from "@chakra-ui/react";
 
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
-
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
   const { logo } = useSelector(getUserState);
 
-  function authentication () {
-    console.log('Welcome to arex')
+  function authentication() {
+    console.log("Welcome to arex");
   }
 
-
   return (
-    <Container maxWidth="1921px">
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        paddingRight="95px"
-        paddingLeft="95px"
+    
+      <Flex
+        justifyItems="center"
+        overflow="hidden"
+        marginInline="150px"
+        
         mt={6}
+        mb="150px"
       >
-        <Box>
+        
           <Image src={logo} alt="logo" />
-        </Box>
-        <Box display="flex" marginLeft="-625px">
-          <Text fontSize="md" mr={4} mt={2}>
+
+
+
+
+
+
+        
+        <Flex  alignItems="center" gap="56px" marginLeft="99px">
+          
+          <Text fontFamily="Poppins" fontWeight="400" >
             Home
           </Text>
-          <Text fontSize="md" mr={4} mt={2}>
+          <Text fontFamily="Poppins" fontWeight="400">
             Features
           </Text>
-          <Text fontSize="md" mr={4} mt={2}>
+          <Text fontFamily="Poppins" fontWeight="400">
             About us
           </Text>
-        </Box>
-        <Box display="flex">
-          <Button bgColor="#8D00FF" borderRadius={50} color="white" onClick={authentication}>
-            Login/Register
+        </Flex>
+        <Flex ml="495px" gap="32px" alignItems="center">
+        <Text fontFamily="Poppins" fontWeight="400">
+            Register
+          </Text>
+          <Button
+            bgColor="#8D00FF"
+            py="12px"
+            px="40px"
+        
+            fontFamily="Poppins"
+            borderRadius={50}
+            fontWeight="600"
+            color="white"
+            onClick={authentication}
+          >
+            Login
           </Button>
-        </Box>
-      </Box>
-    </Container>
+        </Flex>
+      
+      </Flex>
+    
   );
 };
 

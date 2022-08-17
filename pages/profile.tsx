@@ -1,15 +1,15 @@
-import ProfilePage from "../components/ProfilePage";
+import Profiles from "../components/Profiles";
 
 
-const landingPage = () => {
+const Profile = () => {
     const logo="../aerx_logo-removebg-preview 1 (Traced)-1.svg"
 
     return (
         
         <div className="profile">
-        <ProfilePage />
+        <Profiles/>
         </div>
     );
 };
 
-export default landingPage
+export default Profile

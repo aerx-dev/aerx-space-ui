@@ -69,7 +69,7 @@
   margin-top: 45px;
   z-index: -1;
 }
-
+/* 
 .easily {
 font-family: 'Poppins';
 font-style: italic;
@@ -79,8 +79,8 @@ line-height: 111px;
 letter-spacing: -0.03em;
 text-transform: capitalize;
 color: #8D00FF;
-}
-.together {
+} */
+/* .together {
 font-family: 'Poppins';
 font-style: italic;
 font-weight: 900;
@@ -89,7 +89,7 @@ line-height: 111px;
 letter-spacing: -0.03em;
 text-transform: capitalize;
 color: #8D00FF;
-}
+} */
 .monitize {
   padding-top: 12px;
 }
