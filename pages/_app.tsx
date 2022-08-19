@@ -11,6 +11,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   
   return (
+    
+    <div className="profile <div  className='w-[39%] h-[94vh] overflow-hidden'>">
     <Provider store={store}>
     <ChakraProvider
                 theme={myTheme}
@@ -20,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     </ThemeProvider>
     </ChakraProvider>
     </Provider>
+    </div>
   ) 
 }
 

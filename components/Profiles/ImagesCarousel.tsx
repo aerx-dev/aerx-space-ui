@@ -14,6 +14,8 @@ import {
 
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 
 
@@ -44,26 +46,28 @@ const ImagesCarousel = (props: Props) => {
   return (
     <Box
           bgColor="#1F1F1F"
-          height="651px"
+          // height="646px"
           borderTopRadius="50px"
           width="376px"
-          top="429px"
-          position="absolute"
+          // top="434px"
+          // position="absolute"
+          
+          // zIndex="-1"
      
         >
-            <Box>
+            
             <Center>
-              <Image src={"resources/Rectangle 3526.png"} mt={4} />
+              <Image src={"resources/Rectangle 3526.png"} mt="12px" />
             </Center>
             <Center>
-              <Image src={"resources/Rectangle 3526.png"} mt={1} />
+              <Image src={"resources/Rectangle 3526.png"} mt="4px" />
             </Center>
-          </Box>
+          
 
           <Box>
             <Text
               marginLeft="24px"
-              marginTop="12px"
+              marginTop="5px"
               fontWeight="500"
               fontSize="16px"
               color="rgba(255, 255, 255, 0.3);"
@@ -74,8 +78,8 @@ const ImagesCarousel = (props: Props) => {
             </Text>
 
             <Flex
-              justify="space-between"
-              flexGrow="2"
+              justifyContent="space-between"
+              // flexGrow="2"
               flexDirection="row"
               marginLeft="27px"
               mt={4}
@@ -90,7 +94,7 @@ const ImagesCarousel = (props: Props) => {
                   mb="8px"
                 />
                 <Text
-                  fontSize="16px"
+                  fontSize="14px"
                   fontFamily="Poppins"
                   h="48px"
                   fontWeight="400"
@@ -100,15 +104,15 @@ const ImagesCarousel = (props: Props) => {
                 </Text>
               </Flex>
 
-              <Flex flexDirection="column" alignItems="center" width="auto" ml="12px">
+              <Flex flexDirection="column" alignItems="center" width="auto">
                 <Image
-                  src={ellipse4}
+                  src={ellipse5}
                   width="48px"
                   borderRadius="100%"
                   mb="8px"
                 />
                 <Text
-                  fontSize="16px"
+                  fontSize="14px"
                   fontFamily="Poppins"
                   h="48px"
                   fontWeight="400"
@@ -119,14 +123,14 @@ const ImagesCarousel = (props: Props) => {
               </Flex>
               <Flex flexDirection="column" alignItems="center" width="auto">
                 <Image
-                  src={ellipse5}
+                  src={ellipse4}
                   width="48px"
                   h="48px"
                   borderRadius="100%"
                   mb="8px"
                 />
                 <Text
-                  fontSize="16px"
+                  fontSize="14px"
                   fontFamily="Poppins"
                   fontWeight="400"
                   color="#ffffff"
@@ -143,7 +147,7 @@ const ImagesCarousel = (props: Props) => {
                   mb="8px"
                 />
                 <Text
-                  fontSize="16px"
+                  fontSize="14px"
                   fontFamily="Poppins"
                   fontWeight="400"
                   color="#ffffff"
@@ -154,7 +158,7 @@ const ImagesCarousel = (props: Props) => {
               <Flex flexDirection="column" alignItems="center" width="autonp">
                 <Image src={ellipse4} width="48px" mb="8px" />
                 <Text
-                  fontSize="16px"
+                  fontSize="14px"
                   fontFamily="Poppins"
                   fontWeight="400"
                   h="48px"

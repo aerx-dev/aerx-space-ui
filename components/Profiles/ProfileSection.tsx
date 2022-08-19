@@ -35,56 +35,75 @@ const ProfileSection = (props: Props) => {
     <Flex
       bgImage="url('../resources/Rectangle 3212.png')"
       bgRepeat="no-repeat"
-      bgPosition="0 48px"
       bgColor="#191919"
       w="376px"
-    height="495px"
-    //  top="0"
+      // height="494px"
+      top="0"
     // position="absolute"
-    // zIndex={-1}
-   
-
+    zIndex="-2"
+    h={"40%"}
+    className="overflow-scroll"
     >
-      <Flex flexDirection="column" gap="16px" ml="24px" mt="32px">
-        <Image width={10} height={10} src={groupP1} border="2px" />
-        <Image
-          width={10}
-          height={10}
-          src={ellipse1}
-          border="2px"
-          borderColor="gray.200"
+      <Flex flexDirection="column" gap="16px" ml="24px" mt="32px"
+      >
+        {/* never put border and border rad */}
+        <Image    
+          width={8} 
+          height={8}   
+          border="2px solid"
+          borderColor="white"
+          padding="2px"
           borderRadius="100%"
+          src={"../resources/Ellipse 1.svg"}
+          />
+      
+
+        <Image
+          width={8}
+          height={8}
+          padding="2px"
+          border="2px solid"
+          borderColor="white"
+          borderRadius="100%"
+          src={"../resources/Ellipse 2.png"}
         />
 
-        <Image width={10} height={10} src={groupP2} border="2px" />
-        <Image
-          width={10}
-          height={10}
-          src={ellipse2}
-          border="2px"
-          borderColor="gray.200"
+        <Image width={8} height={8} border="2px solid"
+          borderColor="white"
           borderRadius="100%"
-        />
+          padding="2px"
+          src={"../resources/Ellipse 3.png"}
+           />
+
+        <Image
+          width={8}
+          height={8}
+          src={"../resources/Ellipse 4.svg"}
+          border="2px solid"
+          padding="2px"
+          borderColor="white"
+          borderRadius="100%" />
+
       </Flex>
       {/* end */}
       <Flex flexDirection="column" alignItems="center" mx="auto">
-        <Image width={16} height={16} src={logoP} mt="14px" />
+        <Image width={16} height={16} src={logoP} mt="8px" />
 
-        <Box mt="232px">
+        <Box mt="95%">
           <Heading
-            fontSize="32px"
+            fontSize="1.5em"
             color="#FFFFFF"
             fontFamily="Poppins"
-            fontWeight={700}
             fontStyle="normal"
             lineHeight="100%"
+            style={{fontWeight: "bold"}}
           >
             Pavel Dantsev
           </Heading>
 
           <Flex alignItems="center" flexDirection="column">
             <Text
-              fontSize="18px"
+              fontSize="14px"
               fontFamily="Poppins"
               fontStyle="italic"
               color="#FFFFFFB2"
@@ -112,8 +131,8 @@ const ProfileSection = (props: Props) => {
       {/* end */}
 
       <Flex flexDirection="column" gap="32px" mr="21px" mt="32px">
-        <Image src={frameP1} />
-        <Image src={frameP2} />
+        <Image src={frameP1} className='w-[50px]'/>
+        <Image src={frameP2} className='w-[40px]' />
       </Flex>
     </Flex>
     //    end

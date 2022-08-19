@@ -12,6 +12,10 @@
     "@chakra-ui/react": "^2.2.6",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-regular-svg-icons": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@reduxjs/toolkit": "^1.8.4",
     "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
@@ -21,7 +25,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.2",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "react-fit-to-viewport": "^0.1.1"
   },
   "devDependencies": {
     "@types/node": "18.7.0",

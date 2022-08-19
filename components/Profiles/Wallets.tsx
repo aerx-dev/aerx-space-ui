@@ -46,14 +46,15 @@ const Wallets = (props: Props) => {
             bgColor="#242424"
             width="376px"
             marginLeft="0"
-            borderRadius="40px 40px"
-            top="602"
-            position="absolute"
-            height="478px"
+            borderTopRadius="50px"
+            // top="602px"
+            // position="absolute"
+            // height="478px"
+            zIndex="0"
 
           >
              <Center>
-              <Image src={"resources/Rectangle 3526.png"} mt="12px" />
+              <Image src={"resources/Rectangle 3526.png"} mt="5px" />
             </Center>
             <Center>
               <Image src={"resources/Rectangle 3526.png"} mt="4px" />
@@ -69,9 +70,9 @@ const Wallets = (props: Props) => {
               Wallet
             </Text>
 
-            <Flex ml="24px" mt="16px" alignItems="center">
+            <Flex ml="24px" mt="0px" alignItems="center">
               <Text
-                fontSize="24px"
+                fontSize="15px"
                 fontWeight="700"
                 color="#ffffff"
                 fontFamily="Poppins"

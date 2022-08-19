@@ -39,19 +39,15 @@ const Notification = (props: Props) => {
 
   return (
     <Box
-    position="absolute"
-    top="967px"
-    mt="60px"
     bgColor="#303030;
     "
     width="376px"
-    height="112px"
+    // height="112px"
     marginLeft="0"
     borderTopRadius="50px"
-    
-    zIndex="3"
+    zIndex="2"
   >
-     <Center>
+              <Center>
                 <Image src={"resources/Rectangle 3526.png"} mt="12px" />
               </Center>
               <Center>
