@@ -1,0 +1,16 @@
+
+
+
+
+
+
+#profile {
+
+    height: 100%;
+    overflow-y:hidden;
+
+}
+
+.circleModal {
+    backdrop-filter: contrast(40%);
+}

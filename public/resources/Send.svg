@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Iconly/Bulk/Send" clip-path="url(#clip0_1339_876)">
+<g id="Group">
+<ellipse id="Ellipse 753" cx="20.6486" cy="15.9586" rx="7.67417" ry="13.9967" transform="rotate(-150 20.6486 15.9586)" fill="white" fill-opacity="0.7"/>
+<ellipse id="Ellipse 754" cx="11.6447" cy="15.9586" rx="7.67417" ry="13.9967" transform="rotate(150 11.6447 15.9586)" fill="white" fill-opacity="0.3"/>
+<path id="Intersect" fill-rule="evenodd" clip-rule="evenodd" d="M16.1476 8.97879C15.3834 9.93068 14.6611 10.9829 14.0038 12.1215C10.1387 18.816 9.98096 25.9609 13.6515 28.0801C13.7448 28.1339 13.8396 28.184 13.936 28.2304C14.6982 28.5021 15.4416 28.6536 16.1479 28.6739C16.8539 28.6536 17.597 28.502 18.3588 28.2306C18.4553 28.1841 18.5502 28.134 18.6436 28.0801C22.3141 25.9609 22.1564 18.816 18.2913 12.1215C17.634 10.9829 16.9117 9.93067 16.1476 8.97879Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1339_876">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+</defs>
+</svg>

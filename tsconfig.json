@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Profiles/Wallets.jsx", "components/Profiles/ProfileSection.jsx", "components/Profiles/Notification.jsx", "components/Profiles/NftValues.jsx", "components/Profiles/index.jsx", "components/Profiles/ImagesCarousel.jsx", "components/Profiles/Circle.jsx", "components/Profiles/index.jsx", "components/Profiles/index.jsx", "components/Profiles/Collapse.jsx", "components/Profiles/index.js", "components/Profiles/index.js", "components/Profiles/index.js", "pages/_app.jsx", "pages/profile.js"],
+  "exclude": ["node_modules"]
+}
