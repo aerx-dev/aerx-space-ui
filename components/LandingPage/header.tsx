@@ -20,6 +20,9 @@ const Header: React.FC = () => {
     })
 
   }
+  function welcome() {
+    console.log('welcome moses')
+  }
 
 
   return (
@@ -58,7 +61,7 @@ const Header: React.FC = () => {
       </Flex>
 
       <Flex alignItems="center" marginLeft="auto" gap="56px">
-        <Text fontFamily="Poppins" fontWeight="400" color="rgba(50, 46, 101, 0.5);">Register</Text>
+        <Text fontFamily="Poppins" fontWeight="400" color="rgba(50, 46, 101, 0.5);" onClick={welcome}>Register</Text>
         <Button
           bgColor="#8D00FF"
           py="12px"

@@ -3,10 +3,7 @@ import { Box, Image, Text, Center, Flex } from "@chakra-ui/react";
 import Wallets from "./Wallets";
 
 function Collapse(props) {
-
-
-
-// {/* <Wallets toggle={props.toggle} left={props.left} /> */}
+  // {/* <Wallets toggle={props.toggle} left={props.left} /> */}
   return (
     <Flex
       h="739.8px"
@@ -17,7 +14,6 @@ function Collapse(props) {
       top="0"
       pt="20.55px"
       pb="16.44px"
-    
     >
       <Flex
         flexDirection="column"
@@ -26,39 +22,40 @@ function Collapse(props) {
         alignItems="center"
       >
         <Image src={"../resources/Frame 5449.png"} w="21.92px" mb="19.865px" />
+        {/* <Text fontFamily="Open Sans" fontWeight="800" color="white" w="21.92px" h="21px">æ</Text> */}
         <Image
           src={"../resources/Vector 38.png"}
           bgColor="rgba(255, 255, 255, 0.05);"
           py="5.48px"
           px="9.59px"
           borderRadius="10.275px"
-          w="32.88px"
-          h="32.88px"
+          w="32px"
+          h="32px"
           mb="4.11px"
         />
+
         <Image
           src={"../resources/Frame 14042.png"}
           bgColor="rgba(255, 255, 255, 0.05);"
-          py="5.48px"
-          px="9.59px"
+          py="6.48px"
+          px="7.59px"
           borderRadius="10.275px"
-          w="32.88px"
-          h="32.88px"
+          w="32px"
+          h="32px"
           mb="4.11px"
         />
+
         <Image
           src={"../resources/Frame 14289.png"}
           bgColor="rgba(255, 255, 255, 0.05);"
-          py="5.48px"
-          px="9.59px"
+          py="6.48px"
+          px="7.59px"
           borderRadius="10.275px"
-          w="32.88px"
-          h="32.88px"
+          w="32px"
+          h="32px"
           mb="19.865px"
         />
         <Image src={"../resources/Frame 14046.png"} w="21.92px" h="21.92px" />
-
-      
       </Flex>
       <Image
         src={"../resources/Frame 14290.png"}
@@ -73,9 +70,12 @@ function Collapse(props) {
         onClick={props.toggle}
       />
 
-
       <Flex flexDirection="column" gap="10.96px" alignItems="center">
-        <Box border="1px solid rgba(255, 255, 255, 0.1)" borderRadius="100%" p="4px">
+        <Box
+          border="1px solid rgba(255, 255, 255, 0.1)"
+          borderRadius="100%"
+          p="4px"
+        >
           <Text
             color="#ffffff"
             marginTop={-2}
@@ -96,7 +96,11 @@ function Collapse(props) {
             h="13.7px"
           />
         </Box>
-        <Box border="1px solid rgba(255, 255, 255, 0.1)" borderRadius="100%" p="4px">
+        <Box
+          border="1px solid rgba(255, 255, 255, 0.1)"
+          borderRadius="100%"
+          p="4px"
+        >
           <Image src={"../resources/Frame 5450.png"} w="13.015px" h="13.7px" />
         </Box>
       </Flex>

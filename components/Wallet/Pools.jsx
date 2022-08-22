@@ -9,11 +9,21 @@ import {
   Input,
 } from "@chakra-ui/react";
 import Collapse from "../Profiles/Collapse";
+import Newpools from "./NewPool"
 
 function Pools(props) {
+
+  const [isNewPool, setNewPool] = React.useState(false);
+
+  const newPools =() => {
+    setNewPool((prevState) => !prevState);
+  }
+
   return (
     <>
-      <Box w="257.56px" h="739.8px" bgColor="#1F1F1F">
+    {
+      isNewPool ? <Newpools newPool={newPools} /> :
+      <Box w="257.56px" h="739.8px" bgColor="#1F1F1F" position="absolute" top="0">
         <Center>
           <Box
             w="21.92px"
@@ -33,7 +43,7 @@ function Pools(props) {
           ></Box>
         </Center>
         <Flex mt="27.4px" ml="16.44px" gap="76.72px" alignItems="center">
-          <Image src={"../resources/Arrow - Right.png"} w="16.44px" />
+          <Image src={"../resources/Frame 14277.png"} w="16.44px"  onClick={() => props.pool()} />
           <Text
             fontFamily="Poppins"
             fontWeight="700"
@@ -65,6 +75,7 @@ function Pools(props) {
             borderStyle="none"
             bgColor="#191A1B;"
             color="#ffffff"
+            type="search"
           />
          </Flex>
         </FormControl>
@@ -208,6 +219,7 @@ function Pools(props) {
           borderRadius="10.275px"
           mb="21.92px"
           justifyContent="center"
+          onClick = {() => newPools()}
         >
           <Text
             fontFamily="Poppins"
@@ -560,7 +572,8 @@ function Pools(props) {
         </Flex>
         </Flex>
       </Box>
-      {/* <Collapse  onClick={props.toggle} left={props.left}/> */}
+   
+    }
     </>
   );
 }

@@ -40,14 +40,13 @@ const Notification = () => {
   return (
     <Box
       position="absolute"
-      // top="624.72px"
-      top="662.395px"
       bgColor="#303030;"
       width="257.56px"
-      height="76.72px"
       marginLeft="0"
       borderTopRadius="50px"
-      zIndex="3"
+      h="76.72px"
+      top="662.395px"
+    
     >
       <Center>
         <Box
@@ -65,6 +64,7 @@ const Notification = () => {
           mt="2.74px"
         ></Box>
       </Center>
+
       <Center
         display="flex"
         marginTop="8.22px"
@@ -76,25 +76,24 @@ const Notification = () => {
           border="1px"
           borderColor="rgba(255, 255, 255, 0.1);"
           borderRadius="100%"
-          padding="5px"
+          padding="3.8px"
         >
-          <Flex>
+          <Flex alignItems="center" justifyItems="center">
             <Text
-              color="#ffffff"
-              marginTop={-3}
-              marginLeft={6}
-              position="absolute"
-              backgroundColor="red"
-              px={2}
-              py={1}
-              borderRadius="100%"
-              fontFamily="Poppins"
-              fontWeight="500"
-              fontSize="10.59px"
-            >
-              3
-            </Text>
-            <Image src={"resources/Notification.png"} />
+            color="#ffffff"
+            marginTop={-4}
+            marginLeft={3}
+            position="absolute"
+            backgroundColor="red"
+            px="3.5px"
+            borderRadius="100%"
+            fontFamily="Poppins"
+            fontWeight="500"
+            fontSize="9.59px"
+          >
+            3
+          </Text>
+            <Image src={"resources/Notification.png"} w="19.52895px" h="21.26895px" />
           </Flex>
         </Box>
         <Box
@@ -103,16 +102,16 @@ const Notification = () => {
           borderRadius="100%"
           padding="5px"
         >
-          <Image src={"resources/Ellipse 706.png"} />
+          <Image src={"resources/Ellipse 706.png"} w="21.92px" />
         </Box>
         <Box
           border="1px"
           borderColor="rgba(255, 255, 255, 0.1);"
           marginRight="32px"
           borderRadius="100%"
-          padding="8px"
+          padding="5px"
         >
-          <Image src={"resources/Setting.png"} />
+          <Image src={"resources/Setting.png"} w="17.35105px" />
         </Box>
       </Center>
     </Box>

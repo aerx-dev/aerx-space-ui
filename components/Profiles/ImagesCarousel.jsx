@@ -24,32 +24,30 @@ const ImagesCarousel = (props) => {
   return (
     <Box
       bgColor="#1F1F1F"
-      height="442.51px"
       borderTopRadius="34.25px"
       width="257.56px"
-      // top="259.615px"
-      top="297.29px"
       position="absolute"
-      zIndex="1"
+      h="442.51px"
+      top="297.29px"
+
     >
       <Center>
+      <Flex flexDirection="column" mt="8.22px" gap="2.74px">
         <Box
           w="21.92px"
           bgColor="rgba(255, 255, 255, 0.3);"
           height="2px"
-          mt="8.22px"
           borderRadius="6.85px"
         ></Box>
-      </Center>
-      <Center>
         <Box
           w="21.92px"
           bgColor="rgba(255, 255, 255, 0.3);"
           height="2px"
-          mt="2.74px"
           borderRadius="6.85px"
         ></Box>
+      </Flex>
       </Center>
+      
 
       <Box>
         <Text

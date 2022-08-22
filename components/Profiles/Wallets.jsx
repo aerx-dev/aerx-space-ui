@@ -1,5 +1,5 @@
 import React from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
 import {
   Box,
@@ -18,7 +18,7 @@ import { getUserState, setImages } from "../../store/slices/imageSlices";
 // type Props = {}
 
 const Wallets = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const {
     rectangle,
     groupP1,
@@ -38,37 +38,36 @@ const Wallets = () => {
     rectangleP4,
     ellipse5,
   } = useSelector(getUserState);
+
+ 
+
   return (
     <Box
       bgColor="#242424"
       width="257.56px"
       marginLeft="0"
       borderTopRadius="34.25px"
-      // top="374.695px"
-      top="412.37px"
       position="absolute"
-      height="327.43px"
-      zIndex="1"
+      h="327.43px"
+      top="412.37px"
     >
-      <Center>
-        
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="8.22px"
-        >.</Box>
-      </Center>
       <Link href="wallet">
-
-      <Center>
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="2.74px"
-        >.</Box>
-      </Center>
+        <Center>
+          <Flex flexDirection="column" mt="8.22px" gap="2.74px">
+            <Box
+              w="21.92px"
+              bgColor="rgba(255, 255, 255, 0.3);"
+              height="2px"
+              borderRadius="6.85px"
+            ></Box>
+            <Box
+              w="21.92px"
+              bgColor="rgba(255, 255, 255, 0.3);"
+              height="2px"
+              borderRadius="6.85px"
+            ></Box>
+          </Flex>
+        </Center>
       </Link>
 
       <Text
@@ -89,7 +88,7 @@ const Wallets = () => {
           fontFamily="Poppins"
           mr="30.14px"
         >
-           <Link href="wallet">12,786 AEX</Link>
+          <Link href="wallet">12,786 AEX</Link>
         </Text>
         <Flex>
           <Image
