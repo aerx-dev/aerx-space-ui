@@ -1,7 +1,4 @@
 import '../styles/globals.css'
-import '../components/profiles/css/index.css'
-
-
 import type { AppProps } from 'next/app'
 import "../components/LandingPage/css/landing.css";
 import { ThemeProvider } from "next-themes";
