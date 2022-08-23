@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react";
 import { pinToIPFS } from "../lib/pinata";
 import { UseToastOptions } from "@chakra-ui/react";
-import shajs from "sha.js";
-import { AnyArray } from "immer/dist/internal";
 
 export type usePinataProps = {
     file: File | undefined;
@@ -20,49 +18,49 @@ export type IPFSDataType = {
     urlSha256: string | null;
 };
 
-// Change this for using crust or not. If you use crust we will unpin the file from pinata
-const deployCrust = false;
 
-// pass the file or state you want to upload. It will upload the file and retrun the response.
+// pin file to ipfs through pinata
 export default function usePinata(
-    file: File | undefined,
+    file_url: string | undefined,
+    file_name: string | undefined,
     method_type: string,
     username: string,
-    toast: (
-        status: UseToastOptions["status"],
-        description: string,
-        toastId: string,
-    ) => void,
+    // toast: (
+    //     status: UseToastOptions["status"],
+    //     description: string,
+    //     toastId: string,
+    // ) => void,
 ) {
+    const { url, urlHash, size }: any = pinToIPFS(file_url, file_name, method_type, username);
     const [ipfsData, setIpfsData] = useState<IPFSDataType>({
         fileUrl: null,
         fileSize: null,
         urlSha256: null,
     });
-
     useEffect(() => {
         async function fileUpload() {
-            const filename = file!.name;
-            var parts = filename.split(".");
-            const fileType = parts[parts.length - 1];
-            console.log("fileType to upload: ", fileType)
-            const { url, urlHash, size }: any = pinToIPFS(file, filename, method_type, username);
+            if (file_name != undefined) {
+                var parts = file_name.split(".");
+                const fileType = parts[parts.length - 1];
+                console.log("fileType to upload: ", fileType)
+            }
+
             setIpfsData((prevIpfs) => ({
                 ...prevIpfs,
                 fileUrl: url,
                 fileSize: size,
                 urlSha256: urlHash,
             }));
-            toast(
-                "success",
-                "File deployed to IPFS! CID: " + url,
-                "ipfsSccss",
-            );
+            // toast(
+            //     "success",
+            //     "File deployed to IPFS! CID: " + url,
+            //     "ipfsSccss",
+            // );
             return [urlHash, size];
         }
 
-        file && fileUpload();
-    }, [file]);
+        file_url && fileUpload();
+    }, [file_url]);
 
     return ipfsData;
 }

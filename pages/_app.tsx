@@ -1,4 +1,3 @@
-require('dotenv').config();
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import "../components/LandingPage/css/landing.css";
@@ -14,7 +13,6 @@ import { initNearConnection, checkProfile, initPinata } from '../lib/auth';
 import { nearStore } from '../store/near';
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   const [isLoading, setIsLoading] = useState(true);
   const nearState = nearStore((state) => state);
   //1) Initialise near connection and contracts
