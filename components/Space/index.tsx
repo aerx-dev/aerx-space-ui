@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import React from 'react'
 
-const Space: React.FC = () => {
+interface IProps {
+    onCollapse: () => void
+}
+const Space: React.FC<IProps> = ({onCollapse}) => {
     return (
         <div className='w-full h-[100%] bg-black-dark rounded-[10px] p-2 pb-8 px-4 flex flex-col justify-between'>
             <div className='flex justify-between items-center'>
@@ -9,8 +12,8 @@ const Space: React.FC = () => {
                 <Image src='/assets/icons/space-icon.svg' alt="Space" width={30} height={30} />
                 <label className='text-white'>Space</label>
             </div>
-            <div className='flex items-center'>
-                <Image src='/assets/icons/chat-room-menu-icon.svg' alt="Menu" width={30} height={30} />
+            <div className='flex items-center cursor-pointer' onClick={() => onCollapse()}>
+                <Image src='/assets/icons/chat-room-menu-icon.svg' className='cursor-pointer' alt="Menu" width={30} height={30} />
             </div>
             </div>
 

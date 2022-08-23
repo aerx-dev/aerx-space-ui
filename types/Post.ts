@@ -12,4 +12,5 @@ export type Post = {
     coverImage: string,
     attachment: string,
     nftId: string,
+    chatCollapsed?:boolean
 }

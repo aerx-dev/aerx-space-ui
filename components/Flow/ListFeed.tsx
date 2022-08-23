@@ -5,13 +5,14 @@ import { Post } from '../../types/Post';
 import VideoControl from '../VideoControl';
 
 
-const TextPost: React.FC<Post> = ({coverImage, postOwner, nftId, title, description}) => {
+const TextPost: React.FC<Post> = ({coverImage, postOwner, nftId, title, description, chatCollapsed}) => {
     const bgImage = coverImage;
     return (
         <div className='w-full h-[40vh] flex flex-col justify-between rounded-[20px] px-4 pt-4 pb-2' style={{
             backgroundImage: `url(${bgImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
+            height: (chatCollapsed) ? "60vh" :""
             }}>
             <div className='flex justify-between items-center'>
              <div className='flex gap-2 items-center'>
@@ -51,16 +52,19 @@ const TextPost: React.FC<Post> = ({coverImage, postOwner, nftId, title, descript
     )
 }
 
-const VideoPost: React.FC<Post> = ({coverImage, postOwner}) => {
+const VideoPost: React.FC<Post> = ({coverImage, postOwner, chatCollapsed}) => {
     return (
-        <div className='relative w-full  h-[40vh] rounded-[20px]'>
+        <div className='relative w-full  h-[40vh] rounded-[20px]'
+         style={{
+            height: (chatCollapsed) ? "60vh" :""
+         }}
+        >
 
-        <div className='w-full  h-full absolute rounded-[20px]' 
+        <div className='w-full  h-full absolute rounded-[20px] filter blur-[1.5px]' 
         style={{
             backgroundImage: `url(${coverImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-            filter: 'blur(2px)',
         }}>
         </div>
             <div className='p-2 h-full relative flex flex-col justify-between'>
@@ -72,9 +76,9 @@ const VideoPost: React.FC<Post> = ({coverImage, postOwner}) => {
                     </div>
                 </div>
 
-                <div className='relative w-full'>
-                <div className='relative w-full flex justify-around'>
-                <div className='w-[80%] h-[150px] border-[6px] border-white flex justify-around items-center' style={{
+                <div className='relative w-full h-full mt-6'>
+                <div className='relative w-full flex justify-around h-[70%] '>
+                <div className='w-[80%] border-[6px] border-white flex justify-around items-center' style={{
                     backgroundImage: `url(${coverImage})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
@@ -91,10 +95,10 @@ const VideoPost: React.FC<Post> = ({coverImage, postOwner}) => {
                <div className='flex justify-between mt-2 items-center'>
                     <div className='flex gap-4 items-center'>
                         <div>
-                            <Image src="/assets/icons/share-icon.svg" alt="Share" width={20} height={20} />
+                            <Image src="/assets/icons/share-icon.svg" alt="Share" width={25} height={25} />
                         </div>
                         <div>
-                            <Image src="/assets/icons/add-to-list-icon.svg" alt="Add to List" width={20} height={20} />
+                            <Image src="/assets/icons/add-to-list-icon.svg" alt="Add to List" width={25} height={25} />
                         </div>
                        
                     </div>
@@ -108,13 +112,14 @@ const VideoPost: React.FC<Post> = ({coverImage, postOwner}) => {
     )
 }
 
-const TempoPost: React.FC<Post> = ({coverImage, postOwner}) => {
+const TempoPost: React.FC<Post> = ({coverImage, postOwner, chatCollapsed}) => {
     
     return (
         <div className='flex flex-col justify-between w-full bg-black h-[40vh] rounded-[20px] p-2' style={{
             backgroundImage: `url(${coverImage})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
+            height: (chatCollapsed) ? "60vh" :""
             }}>
            <div className='flex justify-between items-center'>
              <div className='bg-[#ffffff48] rounded-full w-[25px]  h-[25px] flex justify-around'>
@@ -155,7 +160,7 @@ const TempoPost: React.FC<Post> = ({coverImage, postOwner}) => {
 }
 
 
-const ListFeeds: React.FC = () => {
+const ListFeeds: React.FC<{chatCollapsed: boolean}> = ({chatCollapsed}) => {
     return (
         <div className='w-full  flex  flex-wrap gap-2 gap-y-3'>
             {posts.map((post: Post, index: number) => (
@@ -165,13 +170,13 @@ const ListFeeds: React.FC = () => {
                     (post.type === 'video') ? '38%' : '38%'
                 }}>
                     {post.type === 'text' && 
-                        <TextPost {...post} />
+                        <TextPost {...post} chatCollapsed={chatCollapsed}  />
                     }
                     {post.type === 'video' && 
-                        <VideoPost {...post}  />
+                        <VideoPost {...post} chatCollapsed={chatCollapsed} />
                     }
                     {post.type === 'tempo' && 
-                        <TempoPost {...post} />
+                        <TempoPost {...post} chatCollapsed={chatCollapsed} />
                     }
                 </div>
             ))}

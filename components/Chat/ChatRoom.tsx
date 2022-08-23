@@ -3,7 +3,10 @@ import React from 'react'
 import { Message } from '../../types/Message'
 import { EMessageType } from '../../enums/EMessageType';
 
-const PrimaryHeader: React.FC = () => {
+
+const PrimaryHeader: React.FC<{
+    onCollapse: () => void
+}> = ({onCollapse}) => {
     return (
         <div className='flex justify-between items-center'>
             <div className='flex items-center'>
@@ -18,8 +21,8 @@ const PrimaryHeader: React.FC = () => {
                 <div className='mt-1'>
                     <Image src="/assets/icons/add-user-icon.svg" alt="Add new user" width={15} height={15} />
                 </div>
-                <div className='mt-2'>
-                    <Image src="/assets/icons/chat-room-menu-icon.svg" alt="Menu" width={20} height={20} />
+                <div className='mt-2 cursor-pointer' onClick={() => onCollapse()}>
+                    <Image src="/assets/icons/chat-room-menu-icon.svg" alt="Menu" className='cursor-pointer' width={30} height={30} />
                 </div>
             </div>
         </div>
@@ -247,10 +250,13 @@ const SendMessage = () => {
     )
 }
 
-const ChatRoom: React.FC = () => {
+const ChatRoom: React.FC<{
+    onCollapse: () => void
+}>
+ = ({onCollapse}) => {
     return (
-        <div className='p-2'>
-            <PrimaryHeader/>
+        <div className='px-2'>
+            <PrimaryHeader onCollapse={onCollapse}/>
             <SecondaryHeader />
             <div className='h-[75vh] flex flex-col justify-between'>
             <MessagesWrapper />

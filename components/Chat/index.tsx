@@ -72,7 +72,9 @@ const MessageItem: React.FC<IMessageItem> = ({avatar, name, time, status, messag
     )
 }
 
-const Chat: React.FC = () => {
+const Chat: React.FC<{
+  onCollapse: () => void
+}> = ({onCollapse}) => {
     const pinnedMessages: Array<IMessageItem> = [
         {
             avatar: '/assets/images/avatar-1.svg',
@@ -133,7 +135,7 @@ const Chat: React.FC = () => {
     return (
         <div className='w-full h-[100%] bg-black-dark rounded-[10px] flex gap-2'>
            <div className='w-[45%] rounded-[10px] bg-black-light h-full p-4'>
-                <ChatHeader />
+                <ChatHeader/>
 
                 <div>
                 <div className='flex gap-2 mt-4'>
@@ -162,7 +164,7 @@ const Chat: React.FC = () => {
                 </div>
            </div>
            <div className='w-[55%]'>
-            <ChatRoom />
+            <ChatRoom  onCollapse={onCollapse} />
            </div>
         </div>
     )
