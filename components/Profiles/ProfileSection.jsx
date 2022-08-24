@@ -14,11 +14,14 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
+import { nearStore } from "../../store/near";
 
 
 // type Props = {};
 
 const ProfileSection = (props) => {
+const nearState = nearStore((state) => state);
+
   const dispatch = useDispatch();
   const {
     groupP1,
@@ -34,7 +37,7 @@ const ProfileSection = (props) => {
   return (
     <Flex
       id=""
-      bgImage="url('../resources/Rectangle 3212.png')"
+      bgImage={`url('${nearState.profile.profileImg}')`}
       bgRepeat="no-repeat"
       bgPosition="30 0"
       bgSize="257.56px 297.29px"
@@ -140,7 +143,8 @@ const ProfileSection = (props) => {
             fontStyle="normal"
             lineHeight="100%"
           >
-            Pavel Dantsev
+              {nearState.profile.fullName}
+         
           </Heading>
 
           <Flex alignItems="center" flexDirection="column">
@@ -154,7 +158,7 @@ const ProfileSection = (props) => {
               marginTop="5.48px"
               mb="11.645px"
             >
-              pashq.aerx
+          {nearState.profile.username}
             </Text>
 
             <Flex>

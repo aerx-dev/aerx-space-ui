@@ -1,10 +1,10 @@
 import create from "zustand";
 import { NearStoreType } from "../types/stores";
 
-const nearStore = create<NearStoreType>((set: (arg0: { (state: any): { connection: any; }; (state: any): { connection: null; }; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; (state: any): any; }) => any) => ({
+const nearStore = create<NearStoreType>((set) => ({
     connection: null,
-    setConnection: (connection: any) => set((state) => ({ connection })),
-    removeConnection: () => set((state) => ({ connection: null })),
+    setConnection: (connection: any) => set(() => ({ connection })),
+    removeConnection: () => set(() => ({ connection: null })),
 
     walletConnection: null,
     setWalletConnection: (walletConnection: any) =>
@@ -53,6 +53,11 @@ const nearStore = create<NearStoreType>((set: (arg0: { (state: any): { connectio
     aexBalance: 0,
     setAexBalance: (aexBalance: any) => set((state) => ({ ...state, aexBalance })),
     removeAexBalance: () => set((state) => ({ ...state, aexBalance: 0 })),
+
+    pinataState: null,
+    setPinataState: (pinataState: any) => set((state) => ({ ...state, pinataState })),
+    removePinataState: () => set((state) => ({ ...state, pinataState: null })),
+
 }));
 
 export { nearStore };

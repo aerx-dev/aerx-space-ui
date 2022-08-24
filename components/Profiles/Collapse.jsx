@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Box, Image, Text, Center, Flex } from "@chakra-ui/react";
-import Wallets from "./Wallets";
+import WalletHead from "./WalletsHead";
 
 function Collapse(props) {
   // {/* <Wallets toggle={props.toggle} left={props.left} /> */}

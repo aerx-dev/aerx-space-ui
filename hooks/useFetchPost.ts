@@ -26,7 +26,7 @@ export default function useFetchPosts(state: { pnftContract: { get_all_posts: (a
     return refreshPosts;
 }
 
-export async function fetchpostsData(state: { pnftContract: { has_registered: (arg0: { user_id: string; }) => Promise<boolean>; get_all_posts: (arg0: { user_id: string; }) => Promise<[any]>; }; accountId: string; setFeed: (arg0: any) => void; }) {
+export async function fetchpostsData(state: any) {
     if (state.pnftContract) {
         const isUserRegistered = await state.pnftContract?.has_registered({
             user_id: state.accountId,

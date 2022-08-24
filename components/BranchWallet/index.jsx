@@ -1,6 +1,6 @@
 import React from "react";
 
-import Wallets from "./Wallets";
+import Wallets from "./tokenWallet";
 import Pools from "./Pools"
 import Collapse from "../Profiles/Collapse"
 import Exchange from "./Exchange";

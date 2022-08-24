@@ -1,4 +1,3 @@
-// require('dotenv').config();
 import * as nearApiJs from "near-api-js";
 import { PNFTContract } from "../types/contracts";
 import { getConfig } from "./config";
@@ -10,14 +9,14 @@ import {
     ConnectConfig,
     ConnectedWalletAccount,
 } from "near-api-js";
-import { NearStoreType } from "../types/stores";
+import { NearStoreType, ProfileType } from "../types/stores";
 import {
     DexContract,
     ProfileContract,
     TokenContract,
 } from "../types/contracts";
-
 import { TOKEN_CONTRACT_NAME, PROFILE_CONTRACT_NAME, DEX_CONTRACT_NAME } from "../utils/constants/contract";
+import { authenticatePinata } from "./pinata";
 
 
 const {
@@ -139,7 +138,8 @@ export async function initNearConnection(nearState: NearStoreType) {
     console.log("accountId : ", accountId);
     //verify accountId exists
     if (!accountId) {
-        console.error("ACCOUNTID IS EMPTY");
+        console.log("Account id is empty");
+        //Todo: prompt user to register or login
         return;
     }
     nearState.setAccountId(accountId);
@@ -156,7 +156,7 @@ export async function initNearConnection(nearState: NearStoreType) {
 
 
 export async function checkProfile(nearState: any) {
-    // checks profile is initialised and user is connected
+    // checks profile contract is initialised and user is connected(has accountId)
     if (nearState.pnftContract && nearState.accountId) {
         console.log("profile checking ...", nearState.profile);
         const has_registered = await nearState.pnftContract?.has_registered({
@@ -169,20 +169,15 @@ export async function checkProfile(nearState: any) {
                 user_id: nearState.accountId,
                 user_to_find_id: nearState.accountId,
             });
-            // check if the nft has extra fields
-            const extra = user_info.metadata?.extra
-                ? JSON.parse(user_info.metadata.extra)
-                : null;
-            // check if the nft has media
-            const image = user_info.metadata?.media
-                ? user_info.metadata.media
-                : null;
-            // set profile to state
-            nearState.setProfile({
-                ...user_info,
-                ...extra,
-                profileImg: image,
-            });
+            const returnedProfile: ProfileType = {
+                userId: user_info.owner_id,
+                username: user_info.token_id,
+                fullName: user_info.metadata.extra,
+                aboutMe: user_info.metadata.description,
+                profileImg: user_info.metadata.media,
+            }
+            nearState.setProfile(returnedProfile)
+            console.log("Profile: ", returnedProfile)
         }
     }
 }
@@ -275,6 +270,13 @@ const loadProfileContract = async (nearState: NearStoreType) => {
     console.log("pnft contract:", pnftContract);
 }
 
+//Todo: maybe moved into initNearConnection depending on the speed of pinata to authenticate(when we have a gateway will test and decide)
+export async function initPinata(nearState: NearStoreType) {
+    const pinatastate = await authenticatePinata();
+    nearState.setPinataState(pinatastate);
+    console.log("Pinata state: ", pinatastate);
+}
+
 export function logout(nearState: NearStoreType) {
     // TODO: NEED TO CONFIRM IF IT'S OK TO THROW
     if (!nearState.walletConnection) {
@@ -289,17 +291,17 @@ export function logout(nearState: NearStoreType) {
     window.location.replace(window.location.origin + window.location.pathname);
 }
 
+//Todo: create custom url/page for error 401 or 404(incase user didn't approve connection or insufficient balance)
 export async function loginToken(nearState: NearStoreType) {
     if (!nearState.walletConnection) {
-        throw new Error("wallet is not connected");
+        throw new Error("Error finding walletConnection state try again later");
+        //Todo: alert users if this ever happens
     }
     //Todo: change contract to profile
-    await nearState.walletConnection.requestSignIn(
-        process.env.TOKEN_CONTRACT_NAME,
-        "",
-        window.location.origin + "/settings/profile",
-        "",
+    await nearState.walletConnection.requestSignIn({
+        contractId: process.env.TOKEN_CONTRACT_NAME,
+        successUrl: `${window.location.origin}/settings/profile`,
+        failureUrl: `${window.location.origin}/error`,
+    }
     );
-
-    //Todo: create custom url/page for error 401 or 404
 }

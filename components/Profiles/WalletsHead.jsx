@@ -14,10 +14,14 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
+import { nearStore } from "../../store/near";
+
 
 // type Props = {}
 
-const Wallets = () => {
+const WalletHead = (props) => {
+  const nearState = nearStore((state) => state);
+
   const dispatch = useDispatch()
   const {
     rectangle,
@@ -51,9 +55,9 @@ const Wallets = () => {
       h="327.43px"
       top="412.37px"
     >
-      <Link href="wallet">
-        <Center>
-          <Flex flexDirection="column" mt="8.22px" gap="2.74px">
+
+        <Center cursor="pointer">
+          <Flex flexDirection="column" mt="8.22px" gap="2.74px" onClick={() => props.wallet()}>
             <Box
               w="21.92px"
               bgColor="rgba(255, 255, 255, 0.3);"
@@ -68,7 +72,7 @@ const Wallets = () => {
             ></Box>
           </Flex>
         </Center>
-      </Link>
+ 
 
       <Text
         marginLeft="16.44px"
@@ -88,7 +92,7 @@ const Wallets = () => {
           fontFamily="Poppins"
           mr="30.14px"
         >
-          <Link href="wallet">12,786 AEX</Link>
+           {nearState.aexBalance} AEX
         </Text>
         <Flex>
           <Image
@@ -105,6 +109,7 @@ const Wallets = () => {
             w="16.44px"
             h="16.44px"
             mr="10.275px"
+            onClick={() => props.upload()}
           />
 
           <Image
@@ -113,6 +118,7 @@ const Wallets = () => {
             w="16.44px"
             h="16.44px"
             mr="10.275px"
+            onClick={() => props.exchange()}
           />
 
           <Image
@@ -121,6 +127,7 @@ const Wallets = () => {
             w="16.44px"
             h="16.44px"
             mr="10.275px"
+            onClick={() => props.pool()}
           />
         </Flex>
       </Flex>
@@ -129,4 +136,4 @@ const Wallets = () => {
   );
 };
 
-export default Wallets;
+export default WalletHead;

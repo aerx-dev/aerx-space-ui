@@ -14,7 +14,9 @@ import {
 
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
-import Circle from "./Circle";
+
+
+
 
 const ImagesCarousel = (props) => {
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ const ImagesCarousel = (props) => {
       top="297.29px"
 
     >
-      <Center>
+      <Center cursor="pointer">
       <Flex flexDirection="column" mt="8.22px" gap="2.74px">
         <Box
           w="21.92px"
@@ -49,7 +51,6 @@ const ImagesCarousel = (props) => {
       </Center>
       
 
-      <Box>
         <Text
           marginLeft="16.44px"
           marginTop="8.22px"
@@ -61,7 +62,6 @@ const ImagesCarousel = (props) => {
         >
           Circles
         </Text>
-
         <Flex
           justifyContent="space-between"
           // flexGrow="2"
@@ -159,11 +159,10 @@ const ImagesCarousel = (props) => {
               fontWeight="400"
               color="#ffffff"
             >
-              Followed
+              Following
             </Text>
           </Flex>
         </Flex>
-      </Box>
     </Box>
   );
 };

@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Center, Text, Flex, Image } from "@chakra-ui/react";
 
-function Wallets(props) {
+
+function tokenWallet(props) {
   return (
     <Box
       w="257.56px"s
@@ -10,7 +11,8 @@ function Wallets(props) {
       position="absolute"
       top="0"
     >
-      <Center>
+      <Center cursor="pointer">
+      <Flex flexDirection="column" mt="8.22px" gap="2.74px" onClick={() => props.toggleWallet()} >
         <Box
           w="21.92px"
           bgColor="rgba(255, 255, 255, 0.3);"
@@ -18,8 +20,7 @@ function Wallets(props) {
           mt="8.22px"
           borderRadius="6.85px"
         ></Box>
-      </Center>
-      <Center>
+
         <Box
           w="21.92px"
           bgColor="rgba(255, 255, 255, 0.3);"
@@ -28,6 +29,8 @@ function Wallets(props) {
           borderRadius="6.85px"
           mb="19.18px"
         ></Box>
+          </Flex>
+
       </Center>
 
       <Center mb="10.96px">
@@ -480,7 +483,7 @@ function Wallets(props) {
             </Text>
             <Text
               fontFamily="Poppins"
-              fontSize="9.59px"
+              fontSize="9.59px"s
               fontWeight="274"
               lineHeight="9.59px"
               color="#FFFFFF4D"
@@ -496,4 +499,4 @@ function Wallets(props) {
   );
 }
 
-export default Wallets;
+export default tokenWallet;

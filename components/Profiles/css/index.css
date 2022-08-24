@@ -22,3 +22,6 @@
 .profileSection {
     background-color: white;
 }
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+  }

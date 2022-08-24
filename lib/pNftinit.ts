@@ -1,3 +1,4 @@
+//this is not really needed auth can handle all contracts init
 import * as nearApiJs from "near-api-js";
 import { ConnectConfig } from "near-api-js";
 import { PNFTContract } from "../types/contracts";

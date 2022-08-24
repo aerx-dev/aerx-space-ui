@@ -46,6 +46,11 @@ export type NearStoreType = {
     aexBalance: number;
     setAexBalance: (aexBalance: any) => void;
     removeAexBalance: () => void;
+
+    pinataState: boolean | null;
+    setPinataState: (pinataState: boolean | undefined) => void;
+    removePinataState: () => void;
+
 };
 
 export type ProfileStoreType = {
@@ -60,12 +65,9 @@ export type ProfileStoreType = {
 };
 
 export type ProfileType = {
+    userId: string | undefined;
     username: string | undefined;
     fullName: string | undefined;
     aboutMe: string | undefined;
-    hobbys: string | undefined;
-    city: string | undefined;
-    country: string | undefined;
     profileImg: string | undefined;
-    [key: string]: any;
 };
