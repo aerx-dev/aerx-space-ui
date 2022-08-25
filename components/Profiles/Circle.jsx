@@ -1,9 +1,11 @@
 import React from "react";
-import { Box, Flex, Image, Text, Button, Heading } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, Button, Heading, Center } from "@chakra-ui/react";
+import { nearStore } from "../../store/near";
 
 // type Props = {}
 
 const Circle = (props) => {
+  const nearState = nearStore((state) => state);
 
   let zIndex = props.circle ? "2" : "-8" 
 
@@ -22,7 +24,7 @@ const Circle = (props) => {
       zIndex={zIndex}
       className="circleModal"
     >
-      <Flex position="absolute" flexDirection="column" gap="16.44px" ml="19.18px" mt="46.58px" zIndex='2'>
+      {/* <Flex position="absolute" flexDirection="column" gap="16.44px" ml="19.18px" mt="46.58px" zIndex='2'>
         <Box
           width="27.4px"
           height="27.4px"
@@ -82,7 +84,7 @@ const Circle = (props) => {
       />
 
       <Box
-        bgImage="url('../resources/Rectangle 321.png')"
+        bgImage={`url('${nearState.profile.profileImg}')`}
         bgRepeat="no-repeat"
         bgSize="282.905px 297.29px"
           bgColor="#191919"
@@ -97,6 +99,8 @@ const Circle = (props) => {
         zIndex=""
         className="modal"
       ></Box>
+<Center>
+
       <Flex
         flexDirection="column"
         alignItems="center"
@@ -112,7 +116,7 @@ const Circle = (props) => {
           lineHeight="21.92px"
           mb="4.795px"
         >
-          Anna Smith
+          {nearState.profile.fullName}
         </Heading>
         <Text
           fontSize="12.33px"
@@ -123,7 +127,7 @@ const Circle = (props) => {
           letterSpacing="-0.02em"
           mb="9.59px"
         >
-          smith.aerx
+          {nearState.profile.username}
         </Text>
         <Flex mb="14px">
           <Image
@@ -207,8 +211,7 @@ const Circle = (props) => {
           mb="16.495px"
           fontSize="10.96px"
         >
-          I work as a doctor, but in my free time I like to make funny pictures
-          and videos.
+        {nearState.profile.aboutMe}
         </Text>
         <Button
           py="17.125px"
@@ -235,6 +238,7 @@ const Circle = (props) => {
           </Text>
         </Button>
       </Flex>
+      </ Center> */}
     </Box>
   );
 };

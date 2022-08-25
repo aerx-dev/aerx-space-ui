@@ -15,10 +15,13 @@ import AddLiquidity from "./AddLiquidity";
 import SharePage from "./SharePage";
 import ConfirmationPage from "./ConfirmationPage";
 
+import tokenWallet from "./tokenWallet";
+
+
 
 
 function index() {
-    const [isToggle, setToggle] = React.useState(true);
+    const [isToggle, setToggle] = React.useState(false);
 
     const [isUpload,setUpload] = React.useState(false)
 
@@ -61,12 +64,12 @@ const wallet = <Wallets
       <Collapse toggle={toggleClick} Toggle={isToggle} />
       {isToggle && (
         <div>
-        {wallet}
-            
-          {isExchange && <Exchange exchange={changeExchange}  /> }
-          {isUpload && <SendingTokens upload={changeUpload}  />  }
-          {isPool && <Pools pool={changePool}  />  }
-          {isLiquidity && <AddLiquidity liquidity={changeLiquidity}  />  }
+        {wallet}          
+        {isExchange && <Exchange exchange={changeExchange}  /> }
+        {isUpload && <SendingTokens upload={changeUpload}  />  }
+        {isPool && <Pools pool={changePool}  />  }
+        {isLiquidity && <AddLiquidity liquidity={changeLiquidity}  />  }
+         
 
 
           {/* <Error /> */}

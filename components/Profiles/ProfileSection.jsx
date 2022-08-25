@@ -16,11 +16,10 @@ import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
 import { nearStore } from "../../store/near";
 
-
 // type Props = {};
 
 const ProfileSection = (props) => {
-const nearState = nearStore((state) => state);
+  const nearState = nearStore((state) => state);
 
   const dispatch = useDispatch();
   const {
@@ -42,21 +41,37 @@ const nearState = nearStore((state) => state);
       bgPosition="30 0"
       bgSize="257.56px 297.29px"
       // bgGradient=" linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73))"
-      
+
       bgColor="#191919"
       w="257.56px"
       height="321.29px"
       top="0"
       // position="absolute"
       zIndex="2"
-      display={props.hidden}
       className="profileSection"
     >
       {/* <Image src={'../resources/Rectangle 3212.png'} position="absolute" zIndex="-2" /> */}
       <Flex flexDirection="column" gap="10.96px" ml="16.44px" mt="21.92px">
         <Box
-         width="27.4px"
-         height="27.4px"
+          bgColor="#6054F0"
+          width="27.4px"
+          height="27.4px"
+          border="2px solid"
+          borderColor="#6054F0"
+          borderRadius="6.85px"
+          onClick={() => props.toggle()}
+        >
+          <Image
+            src="../resources/Frame 14297.png"
+            w="18px"
+            py="5px"
+            px="auto"
+            pl="4px"
+          />
+        </Box>
+        <Box
+          width="27.4px"
+          height="27.4px"
           border="2px solid"
           borderColor="white"
           padding="2px"
@@ -82,8 +97,8 @@ const nearState = nearStore((state) => state);
 
         <Box>
           <Image
-           width="27.4px"
-           height="27.4px"
+            width="27.4px"
+            height="27.4px"
             padding="2px"
             border="2px solid"
             borderColor="white"
@@ -143,8 +158,7 @@ const nearState = nearStore((state) => state);
             fontStyle="normal"
             lineHeight="100%"
           >
-              {nearState.profile.fullName}
-         
+            {nearState.profile.fullName}
           </Heading>
 
           <Flex alignItems="center" flexDirection="column">
@@ -158,11 +172,11 @@ const nearState = nearStore((state) => state);
               marginTop="5.48px"
               mb="11.645px"
             >
-          {nearState.profile.username}
+              {nearState.profile.username}
             </Text>
 
             <Flex>
-              <Image src={ellipse3} marginRight={2} w='10.96px' />
+              <Image src={ellipse3} marginRight={2} w="10.96px" />
               <Text
                 color="#FFFFFF80"
                 fontFamily="Poppins"

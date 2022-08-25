@@ -54,6 +54,8 @@ const WalletHead = (props) => {
       position="absolute"
       h="327.43px"
       top="412.37px"
+      onClick={() => props.wallet()}
+      cursor="pointer"
     >
 
         <Center cursor="pointer">
@@ -109,7 +111,7 @@ const WalletHead = (props) => {
             w="16.44px"
             h="16.44px"
             mr="10.275px"
-            onClick={() => props.upload()}
+   
           />
 
           <Image
@@ -118,7 +120,7 @@ const WalletHead = (props) => {
             w="16.44px"
             h="16.44px"
             mr="10.275px"
-            onClick={() => props.exchange()}
+        
           />
 
           <Image
@@ -127,7 +129,7 @@ const WalletHead = (props) => {
             w="16.44px"
             h="16.44px"
             mr="10.275px"
-            onClick={() => props.pool()}
+      
           />
         </Flex>
       </Flex>

@@ -17,6 +17,9 @@ import Pools from "../BranchWallet/Pools"
 import Exchange from "../BranchWallet/Exchange";
 import SendingTokens from "../BranchWallet/SendingTokens";
 import AddLiquidity from "../BranchWallet/AddLiquidity";
+import recieveToken from "../BranchWallet/RecieveToken";
+
+
 
 
 import { useState } from "react";
@@ -104,13 +107,16 @@ function index() {
         {!isOpenWallet ? 
 
           <div>
-            <ProfileSection />
+            <ProfileSection toggle={toggleClick}  />
             <ImagesCarousel doubleClick={doubleClick} />
             <WalletsHead wallet={openWallet} />
             <NftValues />
             <Notifications />
+            <tokenWallet />
+
           </div> :
           <div>
+
             {wallet}
             {isExchange && <Exchange exchange={changeExchange}  /> }
             {isUpload && <SendingTokens upload={changeUpload}  />  }
@@ -121,13 +127,13 @@ function index() {
         </div>
       )}
     
-      <Collapse toggle={toggleClick} Toggle={isToggle} />
+      {!isToggle && <Collapse toggle={toggleClick} Toggle={isToggle} /> }
 
-      {/* <div className=" w-[39%] h-[94vh]  overflow-y-scroll poppins ">
+      <div className=" w-[39%] h-[94vh]  overflow-y-scroll poppins position-absolute left-542.52px" >
         <FlowFeeds />
-      </div> */}
-      {/* <Circle circle={doubleclicked} removeCircle={removeCircle} />s */}
-    </div>
+      </div>
+      <Circle circle={doubleclicked} removeCircle={removeCircle} />
+  </div>
   );
 }
 

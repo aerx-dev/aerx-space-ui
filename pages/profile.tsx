@@ -6,10 +6,12 @@ const Profile = () => {
 
     return (
         
-        <div className="profile">
+        <div className="profile background-black">
         <Profiles/>
         </div>
     );
 };
 
 export default Profile
+
+

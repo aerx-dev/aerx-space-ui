@@ -13,9 +13,13 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
+import { nearStore } from "../../store/near";
+
 // type Props = {}
 
 const Notification = () => {
+  const nearState = nearStore((state) => state);
+
   const dispatch = useDispatch();
   const {
     rectangle,
@@ -102,7 +106,7 @@ const Notification = () => {
           borderRadius="100%"
           padding="5px"
         >
-          <Image src={"resources/Ellipse 706.png"} w="21.92px" />
+          <Image src={nearState.profile.profileImg} w="21.92px" h="21.92px" borderRadius="100%" />
         </Box>
         <Box
           border="1px"

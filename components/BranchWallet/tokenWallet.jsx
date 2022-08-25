@@ -1,8 +1,13 @@
 import React from "react";
 import { Box, Center, Text, Flex, Image } from "@chakra-ui/react";
+import { nearStore } from "../../store/near";
+
+
 
 
 function tokenWallet(props) {
+const nearState = nearStore((state) => state);
+
   return (
     <Box
       w="257.56px"s
@@ -66,7 +71,7 @@ function tokenWallet(props) {
             color="#ffffff"
             letterSpacing="-2%"
           >
-            12,786
+            {nearState.aexBalance}
           </Text>
           <Text
             h="21.92px"

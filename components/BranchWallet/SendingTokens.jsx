@@ -44,6 +44,7 @@ function SendingTokens(props) {
         fontFamily="Poppins"
         fontSize="10.96px"
         fontWeight="400"
+        backgroundColor="#FFFFFF"
       >
         <Flex gap="5.48px" alignItems="center" onClick={props.upload}>
           <Image

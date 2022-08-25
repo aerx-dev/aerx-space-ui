@@ -1,5 +1,6 @@
 // import Pools from "../components/Pools";
 import Wallets from "../components/BranchWallet/tokenWallet";
+import RecieveToken from "../components/BranchWallet/RecieveToken"
 
 
 const WalletIndex = () => {
@@ -9,7 +10,7 @@ const WalletIndex = () => {
         
         // <Pools/>
         <div>
-            <Wallets />
+            <RecieveToken />
         </div>
 
     );
