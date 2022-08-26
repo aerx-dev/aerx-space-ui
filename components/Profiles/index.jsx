@@ -17,12 +17,13 @@ import Pools from "../BranchWallet/Pools"
 import Exchange from "../BranchWallet/Exchange";
 import SendingTokens from "../BranchWallet/SendingTokens";
 import AddLiquidity from "../BranchWallet/AddLiquidity";
-import recieveToken from "../BranchWallet/RecieveToken";
+import RecieveToken from "../BranchWallet/RecieveToken";
 
 
 
 
 import { useState } from "react";
+
 
 // type Props = {
 // }
@@ -43,6 +44,8 @@ function index() {
 
   const [isLiquidity,setLiquidity] = React.useState(false)
 
+  const [isRecieved,setRecieved] = React.useState(false)
+
 
   const changeUpload =() => {
     setUpload((prevState) => !prevState);
@@ -55,6 +58,9 @@ function index() {
   }
   const changeLiquidity =() => {
     setLiquidity((prevState) => !prevState);
+  }
+  const changeRecieve =() => {
+    setRecieved((prevState) => !prevState);
   }
 
 
@@ -98,6 +104,7 @@ function index() {
   changeAction={setToggle}
   toggle={isToggle}
   toggleWallet={openWallet}
+  recieved={changeRecieve}
   />
   return (
     <div id="profile" className=" bg-[black] flex">
@@ -116,22 +123,29 @@ function index() {
 
           </div> :
           <div>
-
+            
             {wallet}
-            {isExchange && <Exchange exchange={changeExchange}  /> }
-            {isUpload && <SendingTokens upload={changeUpload}  />  }
-            {isPool && <Pools pool={changePool}  />  }
-            {isLiquidity && <AddLiquidity liquidity={changeLiquidity}  />  }
+            {isExchange && <Exchange exchange={changeExchange} toggleWallet={openWallet} /> }
+            {isUpload && <SendingTokens upload={changeUpload}  toggleWallet={openWallet} />  }
+            {isPool && <Pools pool={changePool} toggleWallet={openWallet} />  }
+            {isLiquidity && <AddLiquidity liquidity={changeLiquidity} toggleWallet={openWallet}  />  }
+            {/* {isRecieved && <RecieveToken recieved={changeLiquidity} toggleWallet={openWallet}  />  } */}
           </div>
 }
         </div>
       )}
-    
-      {!isToggle && <Collapse toggle={toggleClick} Toggle={isToggle} /> }
 
-      <div className=" w-[39%] h-[94vh]  overflow-y-scroll poppins position-absolute left-542.52px" >
+      {!isToggle && <Collapse toggle={toggleClick} Toggle={isToggle} /> }
+      <ChatRoom circle={doubleclicked} removeCircle={removeCircle} />
+
+      <div className=" w-[59%] h-[94vh]  overflow-y-scroll poppins position-absolute left-542.52px" >
         <FlowFeeds />
       </div>
+      <div className=" w-[39%] h-[94vh]  overflow-y-scroll poppins position-absolute left-542.52px" >
+        <Space />
+      </div>
+      
+
       <Circle circle={doubleclicked} removeCircle={removeCircle} />
   </div>
   );

@@ -8,29 +8,35 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
-function RecieveToken() {
+import { MinusIcon } from "@chakra-ui/icons";
+
+
+function RecieveToken(props) {
   return (
-    <Box height="739.8px" width="257.56px" background="#1F1F1F"
+    <Box height="739.8px" width="257.56px" background="#1F1F1F" top="0" position="absolute"
     >
-            <Center cursor="pointer">
-      <Flex flexDirection="column" mt="8.22px" gap="2.74px"  >
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="8.22px"
-          borderRadius="6.85px"
-        ></Box>
-
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          borderRadius="6.85px"
-          mb="23.29px"
-        ></Box>
-          </Flex>
-
+        <Center>
+      <div
+        className="m cursor-pointer  hover:bg-[#ffffff39]  flex flex-col
+        background-#1F1F1F
+        gap-0.5
+        mb-[26.825px]
+        mt-2
+        "
+        onClick={props.toggleWallet}
+        cursor="pointer"
+      >
+        <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+          <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+      </div>
       </Center>
       {/* end */}
 
@@ -41,7 +47,7 @@ function RecieveToken() {
         fontSize="10.96px"
         fontWeight="400"
       >
-      <Flex gap="5.48px" alignItems="center" mb="202.075px" ml="16.44px" >
+      <Flex gap="5.48px" alignItems="center" mb="202.075px" ml="16.44px" onClick={props.recieved} cursor="pointer" >
           <Image
             src={"../resources/Arrow - Right1.png"}
             color="#FFFFFF4D;"
@@ -142,7 +148,7 @@ function RecieveToken() {
         >
         Available balance
         </Text>
-        <Text
+        {/* <Text
             fontFamily = "Poppins"
             fontStyle= "normal"  
             fontWeight = "500"
@@ -151,7 +157,7 @@ function RecieveToken() {
 
         >
         102.4 AEX
-        </Text>
+        </Text> */}
         </Box>
         {/* </Flex> */}
         </Center>

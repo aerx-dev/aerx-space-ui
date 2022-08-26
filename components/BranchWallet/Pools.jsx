@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import Collapse from "../Profiles/Collapse";
 import Newpools from "./NewPool"
+import { MinusIcon } from '@chakra-ui/icons'
+
 
 function Pools(props) {
 
@@ -25,24 +27,28 @@ function Pools(props) {
       isNewPool ? <Newpools newPool={newPools} /> :
       <Box w="257.56px" h="739.8px" bgColor="#1F1F1F" position="absolute" top="0">
         <Center>
-          <Box
+      <div
+        className="m cursor-pointer  hover:bg-[#ffffff39]  flex flex-col
+        background-#1F1F1F
+        gap-0.5
+        mb-[26.825px]
+        mt-2
+        "
+        onClick={props.toggleWallet}
+      >
+        <MinusIcon
             w="21.92px"
             bgColor="rgba(255, 255, 255, 0.3);"
             height="2px"
-            mt="8.22px"
-            borderRadius="6.85px"
-          ></Box>
-        </Center>
-        <Center>
-          <Box
+          />
+          <MinusIcon
             w="21.92px"
             bgColor="rgba(255, 255, 255, 0.3);"
             height="2px"
-            mt="2.74px"
-            borderRadius="6.85px"
-          ></Box>
-        </Center>
-        <Flex mt="27.4px" ml="16.44px" gap="76.72px" alignItems="center">
+          />
+      </div>
+      </Center>
+        <Flex mt="27.4px" ml="16.44px" gap="76.72px" alignItems="center" cursor="pointer">
           <Image src={"../resources/Frame 14277.png"} w="16.44px"  onClick={() => props.pool()} />
           <Text
             fontFamily="Poppins"

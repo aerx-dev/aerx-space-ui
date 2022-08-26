@@ -1,41 +1,51 @@
 import React from "react";
-import { Box, Center, Text, Flex, Image } from "@chakra-ui/react";
+import { Box, Center, Text, Flex, Image, Button } from "@chakra-ui/react";
 import { nearStore } from "../../store/near";
-
-
+import { MinusIcon } from '@chakra-ui/icons'
 
 
 function tokenWallet(props) {
-const nearState = nearStore((state) => state);
+  const nearState = nearStore((state) => state);
+
+
+
+              {/* {isExchange && <Exchange exchange={changeExchange} toggleWallet={openWallet} /> }
+            {isUpload && <SendingTokens upload={changeUpload}  toggleWallet={openWallet} />  }
+            {isPool && <Pools pool={changePool} toggleWallet={openWallet} />  }
+            {isLiquidity && <AddLiquidity liquidity={changeLiquidity} toggleWallet={openWallet}  />  } */}
+            {/* {isRecieved && <RecieveToken recieved={changeLiquidity} toggleWallet={openWallet}  />  } */}
 
   return (
     <Box
-      w="257.56px"s
+      w="257.56px"
+      s
       h="739.8px"
       bgColor="#1f1f1f"
-      position="absolute"
+      // position="absolute"
       top="0"
     >
-      <Center cursor="pointer">
-      <Flex flexDirection="column" mt="8.22px" gap="2.74px" onClick={() => props.toggleWallet()} >
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="8.22px"
-          borderRadius="6.85px"
-        ></Box>
-
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="2.74px"
-          borderRadius="6.85px"
-          mb="19.18px"
-        ></Box>
-          </Flex>
-
+     
+      <Center>
+      <div
+        className="m cursor-pointer  hover:bg-[#ffffff39]  flex flex-col
+        background-#1F1F1F
+        gap-0.5
+        mb-[26.825px]
+        mt-2
+        "
+        onClick={props.toggleWallet}
+      >
+        <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+          <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+      </div>
       </Center>
 
       <Center mb="10.96px">
@@ -116,21 +126,28 @@ const nearState = nearStore((state) => state);
         alignItems="center"
         justifyContent="center"
       >
+       
         <Image
           src={"../resources/Download1.png"}
           bgColor="#FFFFFF0D;"
           py="9.9325px"
           px="9.59px"
           borderRadius="10.275px"
-          onClick={() => props.liquidity()}
+          onClick={() => props.recieved()}
+          cursor='pointer'
+         
         />
+   
         <Image
           src={"../resources/Upload1.png"}
-          bgColor="#FFFFFF0D;"s
+          bgColor="#FFFFFF0D;"
+          s
           py="9.9325px"
           px="9.59px"
           borderRadius="10.275px"
           onClick={() => props.upload()}
+          cursor='pointer'
+
         />
         <Image
           src={"../resources/Frame 5557.png"}
@@ -139,6 +156,8 @@ const nearState = nearStore((state) => state);
           px="7.59px"
           borderRadius="10.275px"
           onClick={() => props.exchange()}
+          cursor='pointer'
+
         />
         <Image
           src={"../resources/plant 1.png"}
@@ -147,6 +166,7 @@ const nearState = nearStore((state) => state);
           px="7.59px"
           borderRadius="10.275px"
           onClick={() => props.pool()}
+          cursor='pointer'
 
         />
       </Flex>
@@ -183,7 +203,7 @@ const nearState = nearStore((state) => state);
           w="234.6125px"
           position="relative"
           top="-98.5px"
-        /> 
+        />
       </Box>
       {/* end */}
 
@@ -246,16 +266,13 @@ const nearState = nearStore((state) => state);
         mx="16.44px"
         mb="5.48px"
         gap="8.905px"
-        bgColor='#FFFFFF08;'
+        bgColor="#FFFFFF08;"
         borderRadius="10.275px"
         px="10.96px"
         py="11.645px"
         alignContent="center"
       >
-        <Flex
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Flex justifyContent="center" alignItems="center">
           <Image
             src={"../resources/Group 14031.png"}
             w="16.44px"
@@ -296,16 +313,13 @@ const nearState = nearStore((state) => state);
         mx="16.44px"
         mb="21.92px"
         gap="8.905px"
-        bgColor='#FFFFFF08;'
+        bgColor="#FFFFFF08;"
         borderRadius="10.275px"
         px="10.96px"
         py="11.645px"
         alignContent="center"
       >
-        <Flex
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Flex justifyContent="center" alignItems="center">
           <Image
             src={"../resources/Group 14030.png"}
             w="16.44px"
@@ -341,7 +355,7 @@ const nearState = nearStore((state) => state);
           <Text color="#ffffff">+0.75%</Text>
         </Flex>
       </Flex>
-      
+
       {/* end */}
       <Center mb="18.495px">
         <Text
@@ -356,150 +370,169 @@ const nearState = nearStore((state) => state);
       </Center>
       {/* end */}
 
-
-
       <Flex alignItem="center" mb="18.495px" mx="16.44px">
-        <Image src="../resources/Download.png" border="1px" p="3px" borderColor="#FFFFFF1A" borderRadius="100%" w="24px" mr="10.275px" />
+        <Image
+          src="../resources/Download.png"
+          border="1px"
+          p="3px"
+          borderColor="#FFFFFF1A"
+          borderRadius="100%"
+          w="24px"
+          mr="10.275px"
+        />
         <Flex flexDirection="column" mr="56.17px">
-            <Text
-              fontFamily="Poppins"
-              fontSize="10.96px"
-              fontWeight="342.5px"
-              lineHeight="10.96px"
-              color="#FFFFFF"
-              mb="2.74px"
-            >
-              Recieved NEAR
-            </Text>
-            <Text
-              fontFamily="Poppins"
-              fontSize="9.59px"
-              fontWeight="274"
-              lineHeight="9.59px"
-              color="#FFFFFF4D"
-            >
-              from @pashq
-            </Text>
-          </Flex>
-          <Flex flexDirection="column">
-            <Text
-              fontFamily="Poppins"
-              fontSize="10.96px"
-              fontWeight="342.5px"
-              lineHeight="10.96px"
-              color="#FFFFFF"
-              mb="2.74px"
-            >
-              +99 NEAR
-            </Text>
-            <Text
-              fontFamily="Poppins"
-              fontSize="9.59px"
-              fontWeight="274"
-              lineHeight="9.59px"
-              color="#FFFFFF4D"
-              alignSelf="flex-end"
-            >
-              13.07.22
-            </Text>
-          </Flex>
+          <Text
+            fontFamily="Poppins"
+            fontSize="10.96px"
+            fontWeight="342.5px"
+            lineHeight="10.96px"
+            color="#FFFFFF"
+            mb="2.74px"
+          >
+            Recieved NEAR
+          </Text>
+          <Text
+            fontFamily="Poppins"
+            fontSize="9.59px"
+            fontWeight="274"
+            lineHeight="9.59px"
+            color="#FFFFFF4D"
+          >
+            from @pashq
+          </Text>
         </Flex>
-        <Flex alignItem="center" mb="18.495px" mx="16.44px">
-        <Image src="../resources/Download.png" border="1px" p="3px" borderColor="#FFFFFF1A" borderRadius="100%" w="24px" mr="10.275px" />
+        <Flex flexDirection="column">
+          <Text
+            fontFamily="Poppins"
+            fontSize="10.96px"
+            fontWeight="342.5px"
+            lineHeight="10.96px"
+            color="#FFFFFF"
+            mb="2.74px"
+          >
+            +99 NEAR
+          </Text>
+          <Text
+            fontFamily="Poppins"
+            fontSize="9.59px"
+            fontWeight="274"
+            lineHeight="9.59px"
+            color="#FFFFFF4D"
+            alignSelf="flex-end"
+          >
+            13.07.22
+          </Text>
+        </Flex>
+      </Flex>
+      <Flex alignItem="center" mb="18.495px" mx="16.44px">
+        <Image
+          src="../resources/Download.png"
+          border="1px"
+          p="3px"
+          borderColor="#FFFFFF1A"
+          borderRadius="100%"
+          w="24px"
+          mr="10.275px"
+        />
         <Flex flexDirection="column" mr="56.17px">
-            <Text
-              fontFamily="Poppins"
-              fontSize="10.96px"
-              fontWeight="342.5px"
-              lineHeight="10.96px"
-              color="#FFFFFF"
-              mb="2.74px"
-            >
-              Recieved NEAR
-            </Text>
-            <Text
-              fontFamily="Poppins"
-              fontSize="9.59px"
-              fontWeight="274"
-              lineHeight="9.59px"
-              color="#FFFFFF4D"
-            >
-              from @pashq
-            </Text>
-          </Flex>
-          <Flex flexDirection="column">
-            <Text
-              fontFamily="Poppins"
-              fontSize="10.96px"
-              fontWeight="342.5px"
-              lineHeight="10.96px"
-              color="#FFFFFF"
-              mb="2.74px"
-            >
-              +99 NEAR
-            </Text>
-            <Text
-              fontFamily="Poppins"
-              fontSize="9.59px"
-              fontWeight="274"
-              lineHeight="9.59px"
-              color="#FFFFFF4D"
-              alignSelf="flex-end"
-            >
-              13.07.22
-            </Text>
-          </Flex>
-
-
+          <Text
+            fontFamily="Poppins"
+            fontSize="10.96px"
+            fontWeight="342.5px"
+            lineHeight="10.96px"
+            color="#FFFFFF"
+            mb="2.74px"
+          >
+            Recieved NEAR
+          </Text>
+          <Text
+            fontFamily="Poppins"
+            fontSize="9.59px"
+            fontWeight="274"
+            lineHeight="9.59px"
+            color="#FFFFFF4D"
+          >
+            from @pashq
+          </Text>
         </Flex>
-        <Flex alignItem="center" mb="18.495px" mx="16.44px">
-        <Image src="../resources/Download.png" border="1px" p="3px" borderColor="#FFFFFF1A" borderRadius="100%" w="24px" mr="10.275px" />
+        <Flex flexDirection="column">
+          <Text
+            fontFamily="Poppins"
+            fontSize="10.96px"
+            fontWeight="342.5px"
+            lineHeight="10.96px"
+            color="#FFFFFF"
+            mb="2.74px"
+          >
+            +99 NEAR
+          </Text>
+          <Text
+            fontFamily="Poppins"
+            fontSize="9.59px"
+            fontWeight="274"
+            lineHeight="9.59px"
+            color="#FFFFFF4D"
+            alignSelf="flex-end"
+          >
+            13.07.22
+          </Text>
+        </Flex>
+      </Flex>
+      <Flex alignItem="center" mb="18.495px" mx="16.44px">
+        <Image
+          src="../resources/Download.png"
+          border="1px"
+          p="3px"
+          borderColor="#FFFFFF1A"
+          borderRadius="100%"
+          w="24px"
+          mr="10.275px"
+        />
         <Flex flexDirection="column" mr="56.17px">
-            <Text
-              fontFamily="Poppins"
-              fontSize="10.96px"
-              fontWeight="342.5px"
-              lineHeight="10.96px"
-              color="#FFFFFF"
-              mb="2.74px"
-            >
-              Recieved NEAR
-            </Text>
-            <Text
-              fontFamily="Poppins"
-              fontSize="9.59px"
-              fontWeight="274"
-              lineHeight="9.59px"
-              color="#FFFFFF4D"
-            >
-              from @pashq
-            </Text>
-          </Flex>
-          <Flex flexDirection="column">
-            <Text
-              fontFamily="Poppins"
-              fontSize="10.96px"
-              fontWeight="342.5px"
-              lineHeight="10.96px"
-              color="#FFFFFF"
-              mb="2.74px"
-            >
-              +99 NEAR
-            </Text>
-            <Text
-              fontFamily="Poppins"
-              fontSize="9.59px"s
-              fontWeight="274"
-              lineHeight="9.59px"
-              color="#FFFFFF4D"
-              alignSelf="flex-end"
-            >
-              13.07.22
-            </Text>
-          </Flex>
-
-
+          <Text
+            fontFamily="Poppins"
+            fontSize="10.96px"
+            fontWeight="342.5px"
+            lineHeight="10.96px"
+            color="#FFFFFF"
+            mb="2.74px"
+          >
+            Recieved NEAR
+          </Text>
+          <Text
+            fontFamily="Poppins"
+            fontSize="9.59px"
+            fontWeight="274"
+            lineHeight="9.59px"
+            color="#FFFFFF4D"
+          >
+            from @pashq
+          </Text>
         </Flex>
+        <Flex flexDirection="column">
+          <Text
+            fontFamily="Poppins"
+            fontSize="10.96px"
+            fontWeight="342.5px"
+            lineHeight="10.96px"
+            color="#FFFFFF"
+            mb="2.74px"
+          >
+            +99 NEAR
+          </Text>
+          <Text
+            fontFamily="Poppins"
+            fontSize="9.59px"
+            s
+            fontWeight="274"
+            lineHeight="9.59px"
+            color="#FFFFFF4D"
+            alignSelf="flex-end"
+          >
+            13.07.22
+          </Text>
+        </Flex>
+      </Flex>
     </Box>
   );
 }

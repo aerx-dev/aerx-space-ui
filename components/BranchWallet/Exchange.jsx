@@ -1,5 +1,8 @@
 import React from "react";
 import { Box, Text, Center, Flex, Image, Button } from "@chakra-ui/react";
+import { MinusIcon } from '@chakra-ui/icons'
+
+
 
 function Exchange(props) {
   return (
@@ -11,23 +14,26 @@ function Exchange(props) {
       top="0"
     >
       <Center>
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="8.22px"
-          borderRadius="6.85px"
-        ></Box>
-      </Center>
-      <Center>
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="2.74px"
-          borderRadius="6.85px"
-          mb="23.29px"
-        ></Box>
+      <div
+        className="m cursor-pointer  hover:bg-[#ffffff39]  flex flex-col
+        background-#1F1F1F
+        gap-0.5
+        mb-[26.825px]
+        mt-2
+        "
+        onClick={props.toggleWallet}
+      >
+        <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+          <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+      </div>
       </Center>
 
       <Flex
@@ -39,7 +45,7 @@ function Exchange(props) {
         fontSize="10.96px"
         fontWeight="400"
       >
-        <Flex gap="5.48px" alignItems="center" onClick={() => props.exchange()}>
+        <Flex gap="5.48px" alignItems="center" onClick={() => props.exchange()} cursor="pointer">
           <Image
             src={"../resources/Arrow - Right1.png"}
             color="#FFFFFF4D;"

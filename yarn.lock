@@ -369,6 +369,20 @@
   dependencies:
     "@chakra-ui/utils" "2.0.6"
 
+"@chakra-ui/icon@3.0.9":
+  "integrity" "sha512-P2Pwm/za6m1W1oqL2kGHH6XrrymsBjqYAFwOW2lB5Q6mI1e+RYe/iMxDoPSLHMYhqdfH7vyib/ffE3Vv3a5oTA=="
+  "resolved" "https://registry.npmjs.org/@chakra-ui/icon/-/icon-3.0.9.tgz"
+  "version" "3.0.9"
+  dependencies:
+    "@chakra-ui/shared-utils" "2.0.1"
+
+"@chakra-ui/icons@^2.0.9":
+  "integrity" "sha512-6xvV2rC8wATgfnRH+fC9mi0nLcgKjhHKO29lV1pGioVI0yWK0dqc//zjcyBhMMpW5ABnSfig7ujVBf3op/Syzg=="
+  "resolved" "https://registry.npmjs.org/@chakra-ui/icons/-/icons-2.0.9.tgz"
+  "version" "2.0.9"
+  dependencies:
+    "@chakra-ui/icon" "3.0.9"
+
 "@chakra-ui/image@2.0.7":
   "integrity" "sha512-ctQku96p6KFxYQRcJfxDnr3A5pRPqNCUBkdDvbX/312eD+riVpitCV4wo5tamD3HZiWMaw0tnU+VjjCdiGLzHg=="
   "resolved" "https://registry.npmjs.org/@chakra-ui/image/-/image-2.0.7.tgz"
@@ -594,6 +608,11 @@
   dependencies:
     "@chakra-ui/form-control" "2.0.6"
     "@chakra-ui/utils" "2.0.6"
+
+"@chakra-ui/shared-utils@2.0.1":
+  "integrity" "sha512-NXDBl/u4wrSNp0ON5R3r3evkRurrAz2yuO7neooaG+O5HEenVouGqm4CsXd6lUAPmjwiGzA0LQFNCt0Hj92dXg=="
+  "resolved" "https://registry.npmjs.org/@chakra-ui/shared-utils/-/shared-utils-2.0.1.tgz"
+  "version" "2.0.1"
 
 "@chakra-ui/skeleton@2.0.11":
   "integrity" "sha512-fzqGDWfZ3LkoaEvn+F6zNzT2HQ/d8y8tctO8vHnQ02HvBIZsrdY+0nmZIwkaS6oGasUZyuvrUAC+h+3MBoeXpA=="

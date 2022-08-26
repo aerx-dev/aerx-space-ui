@@ -46,7 +46,7 @@ function SendTokens(props) {
         fontSize="10.96px"
         fontWeight="400"
       >
-        <Flex gap="5.48px" alignItems="center" onClick={props.upload}>
+        <Flex gap="5.48px" alignItems="center" onClick={props.upload} cursor="pointer">
           <Image
             src={"../resources/Arrow - Right1.png"}
             color="#FFFFFF4D;"

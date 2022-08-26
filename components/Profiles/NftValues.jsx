@@ -14,6 +14,8 @@ import {
 
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
+import { MinusIcon } from '@chakra-ui/icons'
+
 // type Props = {};
 
 const NftValues = () => {
@@ -48,21 +50,27 @@ const NftValues = () => {
       top="494.57px"
 
     >
-      <Center cursor="pointer">
-        <Flex flexDirection="column">
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="8.22px"
-        ></Box>
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="2.74px"
-        ></Box>
-        </Flex>
+      <Center>
+     <div
+        className="m cursor-pointer  hover:bg-[#ffffff39]  flex flex-col
+        background-#1F1F1F
+        gap-0.5
+      
+        mt-2
+       "
+        onClick=""
+      >
+        <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+          <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+      </div>
       </Center>
 
       <Flex mt="8.22px" ml="16.44px" alignItems="center">

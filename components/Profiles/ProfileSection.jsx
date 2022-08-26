@@ -1,16 +1,11 @@
 import React from "react";
 import {
   Box,
-  Spacer,
   Image,
   Text,
   Heading,
-  SimpleGrid,
-  extendTheme,
-  Center,
   Flex,
-  Container,
-  position,
+
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "../../store/store";
 import { getUserState, setImages } from "../../store/slices/imageSlices";
@@ -23,10 +18,6 @@ const ProfileSection = (props) => {
 
   const dispatch = useDispatch();
   const {
-    groupP1,
-    groupP2,
-    ellipse1,
-    ellipse2,
     ellipse3,
     logoP,
     frameP1,
@@ -51,7 +42,7 @@ const ProfileSection = (props) => {
       className="profileSection"
     >
       {/* <Image src={'../resources/Rectangle 3212.png'} position="absolute" zIndex="-2" /> */}
-      <Flex flexDirection="column" gap="10.96px" ml="16.44px" mt="21.92px">
+      <Flex flexDirection="column" gap="10.96px" ml="16.44px" mt="21.92px" cursor="pointer">
         <Box
           bgColor="#6054F0"
           width="27.4px"
@@ -69,6 +60,7 @@ const ProfileSection = (props) => {
             pl="4px"
           />
         </Box>
+       
         <Box
           width="27.4px"
           height="27.4px"

@@ -8,6 +8,7 @@ import {
   Input,
   Button,
 } from "@chakra-ui/react";
+import { MinusIcon } from '@chakra-ui/icons'
 
 function SendingTokens(props) {
   return (
@@ -18,35 +19,36 @@ function SendingTokens(props) {
       position="absolute"
       top="0"
     >
-      <Center>
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="8.22px"
-          borderRadius="6.85px"
-        ></Box>
+   <Center>
+      <div
+        className="m cursor-pointer  hover:bg-[#ffffff39]  flex flex-col
+        background-#1F1F1F
+        gap-0.5
+        mb-[26.825px]
+        mt-2
+        "
+        onClick={props.toggleWallet}
+      >
+        <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+          <MinusIcon
+            w="21.92px"
+            bgColor="rgba(255, 255, 255, 0.3);"
+            height="2px"
+          />
+      </div>
       </Center>
-      <Center>
-        <Box
-          w="21.92px"
-          bgColor="rgba(255, 255, 255, 0.3);"
-          height="2px"
-          mt="2.74px"
-          borderRadius="6.85px"
-          mb="23.29px"
-        ></Box>
-      </Center>
-
-      <Box
-        mb="202.76px"
+  <Box
+        mb="158.235px"
         mx="16.44px"
         fontFamily="Poppins"
         fontSize="10.96px"
         fontWeight="400"
-        backgroundColor="#FFFFFF"
       >
-        <Flex gap="5.48px" alignItems="center" onClick={props.upload}>
+      <Flex gap="5.48px" alignItems="center" mb="202.075px" ml="16.44px" onClick={props.upload} cursor="pointer" >
           <Image
             src={"../resources/Arrow - Right1.png"}
             color="#FFFFFF4D;"
@@ -54,7 +56,8 @@ function SendingTokens(props) {
             h="10.275px"
           />
           <Text color="#FFFFFF4D;">Back</Text>
-        </Flex>
+    
+      </Flex>
       </Box>
 
       <Center mb="32.88px">
