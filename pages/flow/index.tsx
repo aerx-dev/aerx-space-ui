@@ -5,7 +5,7 @@ import FlowFeeds from '../../components/Flow';
 import Space from '../../components/Space';
 import { expandChat, expandFlow, expandSpace, selectModules } from '../../store/slices/modulesSlices';
 import { useDispatch, useSelector } from '../../store/store';
-
+import Index from "../../components/Profiles/index"
 const Flow: React.FC = () => {
     const dispatch = useDispatch();
     const { flow, chat, space, collections  } = useSelector(selectModules);
@@ -27,11 +27,13 @@ const Flow: React.FC = () => {
     return (
         <div className='w-full h-screen bg-black p-6 flow'>
            <div className='flex justify-between'>
-                <CollapsingSidebar 
+           <Index />
+
+                {/* <CollapsingSidebar 
                 onChatClicked={handleChatClicked}
                 onFlowClicked={handleFlowClicked}
                 onSpaceClicked={handleSpaceClicked}
-                />
+                /> */}
 
             {!chat.collapsed && 
                 <div className='w-[39%] h-[94vh] ml-[20px]'
