@@ -36,7 +36,7 @@ function Profile(props) {
   const logOutUser = () => {
     setLogout((prevState) => !prevState);
   };
-  const [isLargerThan1280] = useMediaQuery("(max-height: 757px)");
+  const [isLargerThan656] = useMediaQuery("(max-height: 656px)");
   const bgGradient = useColorModeValue(
     // "linear(#edf2f700, #edf2f720 15%, gray.100 90%)",
     "linear(180deg, rgba(25, 25, 25, 0) 0%,, #191919 100%)"
@@ -120,7 +120,7 @@ function Profile(props) {
     <CircleList remove={remCirc} />
   ) : (
     <Grid
-      templateRows="1fr"
+      templateRows={isLargerThan656 ? "240px 1fr" :  "1fr"}
       // templateRows=" repeat( auto-fit, minmax(100%, 100vh) )"
       bg="#1F1F1F"
       w="320px"
@@ -133,7 +133,7 @@ function Profile(props) {
         bgColor={
           !nearState.profile.profileImg.includes(".glb")
             ? "#191919"
-            : "transparent"
+            : "#191919"
         }
         bgImage={
           !nearState.profile.profileImg.includes(".glb")
@@ -228,7 +228,7 @@ function Profile(props) {
                 lineHeight="100%"
                 textAlign="center"
                 // letterSpacing="-0.02em"
-                mt="21px"
+                // mt="21px"
                 justifyContent="center"
                 textTransform="capitalize"
                 // zIndex="-1"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { Message } from "../../types/Message"
 import { EMessageType } from "../../enums/EMessageType"
 import { useDispatch, useSelector } from "../../store/store"
@@ -14,8 +14,10 @@ import {
   selectMessages,
   setDirectMessages,
 } from "../../store/slices/messagesSlice"
-import { Box, Flex, Image, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 import { SmoothCorners } from "react-smooth-corners"
+import Image from "next/image"
+import { Transaction } from "../../components/SendTokens/ui/Transaction"
 
 const PrimaryHeader: React.FC = () => {
   const { chat } = useSelector(selectModules)
@@ -28,17 +30,18 @@ const PrimaryHeader: React.FC = () => {
     }
   }
   return (
-    <Flex gap="115px" alignItems="center" className="">
+    <Flex className="flex justify-between relative">
       <Flex alignItems="center">
         <Box className="w-9">
           <Image
             src={"/assets/icons/chat-room-header-ico.svg"}
-            alt="voluengr"
+            alt="valuengr"
             width={35}
+            layout="fixed"
             height={35}
           />
         </Box>
-        <Box className="">
+        <Box className="relative bottom-[2px]">
           <Text
             fontFamily="Poppins"
             fontSize="14px"
@@ -51,21 +54,23 @@ const PrimaryHeader: React.FC = () => {
           </Text>
         </Box>
       </Flex>
-      <Flex alignItems="center" className="">
-        <Box className="cursor-pointer hover:bg-black-light p-2 transition duration-150 ease-in-out rounded-[10px]">
+      <Flex alignItems="center" className="mr-2 relative bottom-[2px]">
+        <Box className="cursor-pointer flex items-center hover:bg-black-light p-2 transition duration-150 ease-in-out rounded-[10px]">
           <Image
-            src="../resources/Add Users.png"
+            src="/resources/Add Users.png"
             alt="Add new user"
+            layout="fixed"
             width={18}
             height={18}
           />
         </Box>
         <Box
-          className="cursor-pointer hover:bg-black-light p-[3px] mr-5 transition duration-150 ease-in-out rounded-[10px]"
+          className="cursor-pointer flex items-center hover:bg-black-light p-[3px]  transition duration-150 ease-in-out rounded-[10px]"
           onClick={handleCollapseChat}
         >
           <Image
-            src="../resources/Hide.png"
+            src="/resources/Hide.png"
+            layout="fixed"
             alt="Menu"
             width={27}
             height={27}
@@ -134,14 +139,19 @@ const SecondaryHeader: React.FC<{
   }, [])
 
   return (
-    <Flex mt="17.65px" gap="" className="mb-1" px="3%">
-      <Flex alignItems="center" className="relative right-1">
+    <Flex
+      // mt="17.65px"
+      gap=""
+      className="flex mt-3 justify-between   relative bottom-2 mb-1"
+    >
+      <Flex alignItems="center" className="relative left-1   ">
         {!activeMessage?.avatar.includes(".glb") && (
           <Image
             src={activeMessage?.avatar || "/assets/images/avatar-1.svg"}
             width="27.4px"
             height="27.4px"
             alt="Avatar"
+            priority
             className="rounded-full"
           />
         )}
@@ -155,11 +165,17 @@ const SecondaryHeader: React.FC<{
           >
             <div
               id="babylon-element-chat-room"
-              style={{ width: "100%", height: "100%", margin: "auto" }}
+              style={{ width: "100%", height: "100%" }}
             ></div>
           </Box>
         )}
-        <Flex flexDirection="column" gap="2.74" ml="8.22px" width="166px">
+        <Flex
+          flexDirection="column"
+          className="ml-2 w-fit"
+          gap="2.74"
+          // ml="8.22px"
+          // width="166px"
+        >
           <Text
             fontFamily="Poppins"
             fontSize="10.96px"
@@ -182,18 +198,20 @@ const SecondaryHeader: React.FC<{
           </Text>
         </Flex>
       </Flex>
-      <Flex gap="14px" ml="" className="ml-3" justifyContent="space-around">
+      <Flex gap="14px" className="relative right-3 ">
         <Image
           src="/assets/icons/audio-call-icon.svg"
           alt="Phone"
-          className="cursor-pointer"
+          layout="fixed"
+          className="cursor-pointer hover:scale-110  transition ease-in-out duration-400 "
           width={18}
           height={18}
         />
         <Image
           src="/assets/icons/video-call-icon.svg"
           alt="Video"
-          className="cursor-pointer"
+          layout="fixed"
+          className="cursor-pointer hover:scale-110  transition ease-in-out duration-400 "
           width={18}
           height={18}
         />
@@ -206,6 +224,8 @@ const MessagesWrapper: React.FC<{ activeReceiver: IMessageItem }> = ({
   activeReceiver,
 }) => {
   const userId: string = "2"
+  const [isScroll, setIsScroll] = useState<boolean>(true)
+  const messageRef = useRef<HTMLDivElement | null>(null)
   const nearState = nearStore((state) => state)
   const dispatch = useDispatch()
   const { messages } = useSelector(selectMessages)
@@ -216,8 +236,8 @@ const MessagesWrapper: React.FC<{ activeReceiver: IMessageItem }> = ({
   }> = ({ content, type }) => {
     return (
       <SmoothCorners corners="35">
-        <div className="flex ">
-          <div className="ml-auto mr-3 bg-black-light p-4 px-4 w-[max-content] max-w-[90%] rounded-[20px] rounded-br-[2px]">
+        <div className="flex justify-end">
+          <div className="  mr-2 bg-black-light p-4 px-4 w-[max-content] max-w-[90%] rounded-[20px] rounded-br-[2px]">
             {type === EMessageType.TEXT && (
               <p className="text-white text-[11px]">{content}</p>
             )}
@@ -241,7 +261,7 @@ const MessagesWrapper: React.FC<{ activeReceiver: IMessageItem }> = ({
   }> = ({ content, type }) => {
     return (
       <SmoothCorners corners="35">
-        <div className="bg-primary p-3 px-4 w-[max-content] max-w-[90%] ml-2 rounded-[20px] rounded-bl-[2px]">
+        <div className=" bg-primary p-3 px-4 w-[max-content] max-w-[90%] ml-2 rounded-[20px] rounded-bl-[2px]">
           {type === EMessageType.TEXT && (
             <p className="text-white text-[11px]">{content}</p>
           )}
@@ -282,13 +302,39 @@ const MessagesWrapper: React.FC<{ activeReceiver: IMessageItem }> = ({
     )
   }
 
+  const handleScroll = (event: any) => {
+    let isScrolling
+    setIsScroll(true)
+    clearTimeout(isScrolling)
+    isScrolling = setTimeout(() => {
+      setIsScroll(false)
+    }, 4000)
+  }
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll)
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll)
+  //   }
+  // }, [])
+
+  useEffect(() => {
+    messageRef.current?.lastElementChild?.scrollIntoView()
+  }, [messages])
+
   return (
-    <Box
-      className=" bg-[#FFFFFF0D
-    ] overflow-y-scroll text-center"
-      height="746%"
-      width="100%"
-      pb="25px"
+    <div
+      className={` h-full w-[102%]  text-center overflow-y-scroll  ${
+        isScroll
+          ? " transition ease-in-out duration-300"
+          : " scrollbar-hide transition ease-in-out duration-300"
+      }`}
+      // height="746%"
+      // width="100%"
+      ref={messageRef}
+      // pb="25px"
+      onScroll={handleScroll}
     >
       {messages.map(
         (
@@ -312,7 +358,7 @@ const MessagesWrapper: React.FC<{ activeReceiver: IMessageItem }> = ({
           </div>
         )
       )}
-    </Box>
+    </div>
   )
 }
 
@@ -486,6 +532,7 @@ const SendMessage: React.FC<{
     await getChat(nearState.accountId, activeReceiver.accountId)
     console.log(activeReceiver.accountId)
     const textArea = document.getElementById("textarea")!
+
     const newMessage: Message = {
       id: Date.now().toString(),
       sender: {
@@ -506,59 +553,76 @@ const SendMessage: React.FC<{
     dispatch(setDirectMessages(newMessages))
 
     try {
-      await sendMessage(nearState.accountId, activeReceiver.accountId, message)
-      textArea.textContent = ""
+      if (message !== "") {
+        await sendMessage(
+          nearState.accountId,
+          activeReceiver.accountId,
+          message
+        )
+      }
+      setMessage("")
     } catch (error) {
       console.error("Error while sending message")
-      textArea.textContent = ""
+      setMessage("")
     }
   }
 
   return (
-    <Flex className="flex mt-1 relative top-1 bg-black-dark w-full">
-      <Flex gap="19.5px" alignItems="center">
-        <Image
-          src="/assets/icons/tag-icon.svg"
-          alt="Tag"
-          className="cursor-pointer"
-          width="24px"
-          height="24px"
-        />
-        <div className="mt-2">
-          <textarea
-            id="textarea"
+    <Flex className="flex justify-between mt-1  relative top-1 bg-black-dark w-full">
+      <Flex gap="" alignItems="center">
+        <div className="relative top-0.5">
+          <Image
+            src="/assets/icons/tag-icon.svg"
+            alt="Tag"
+            className="cursor-pointer hover:scale-110 transition ease-in-out duration-300"
+            layout="fixed"
+            width="24px"
+            height="24px"
+          />
+        </div>
+        <div className="mb-1.5 relative left-3">
+          <input
+            type="text"
+            pattern="/^\s*$/"
             placeholder="Type message..."
-            className="placeholder-[#565656]  ml-1 placeholder:text-[15px] tracking-[-0.02em]  leading-4  block mt-[3px] items-stretch bg-transparent  focus:outline-none  h-8 w-[200px]
-              text-white text-[13px]  "
+            value={message}
+            className={`placeholder-[#565656]  ml-1 placeholder:text-[15px] tracking-[-0.02em]  leading-4  block mt-[3px] items-stretch bg-transparent  focus:outline-none  h-8 w-[200px]  xl:w-[170px] 2xl:w-[200px]
+              text-white text-[13px]  `}
+            required
             style={{
               resize: "none",
             }}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDownCapture={(e) => {
               if (e.key === "Enter") {
-                handleSendMessageCapture()
+                const resultMessage: boolean = message.trim().length === 0
+                if (!resultMessage) {
+                  handleSendMessageCapture()
+                }
               }
             }}
             onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleSendMessage()
+              const resultMessage: boolean = message.trim().length === 0
+
+              if (!resultMessage) {
+                if (e.key === "Enter") {
+                  handleSendMessage()
+                }
               }
             }}
-            defaultValue={""}
+          />
+        </div>
+        <div className="w-12 relative left-1 mx-auto h-12 mt-[1px] ">
+          <Image
+            src="/resources/Group 55371.png"
+            alt="send message"
+            width="36px"
+            height="36px"
+            className="cursor-pointer hover:bg-black-light rounded-full transition ease-in-out duration-300  "
+            onClick={onSend}
           />
         </div>
       </Flex>
-
-      <div className="w-12 h-12 mt-[1px] ">
-        <Image
-          src="../resources/Group 55371.png"
-          alt="send message"
-          width="36px"
-          height="36px"
-          className="cursor-pointer  relative "
-          onClick={onSend}
-        />
-      </div>
     </Flex>
   )
 }
@@ -569,21 +633,25 @@ const ChatRoom: React.FC<{
   const [initializeSendToken, setInitializeSendToken] = useState<boolean>(false)
   return (
     <>
-      <div className="p-2 ">
+      {initializeSendToken && (
+        <SendTokens onClose={() => setInitializeSendToken(false)} />
+      )}
+      <div className="p-2 flex flex-col z-0">
         <PrimaryHeader />
         <SecondaryHeader activeMessage={activeMessage} />
-        <div className="h-[80vh] w-fit flex flex-col justify-between">
+        <div className="h-[80vh] w-fit  flex flex-col justify-between  ">
           <MessagesWrapper activeReceiver={activeMessage} />
-
+          {/* <Transaction
+            amount={"+12000"}
+            time={"21.37"}
+            situation={"Received"}
+          /> */}
           <SendMessage
             onSend={() => setInitializeSendToken(true)}
             activeReceiver={activeMessage}
           />
         </div>
       </div>
-      {initializeSendToken && (
-        <SendTokens onClose={() => setInitializeSendToken(false)} />
-      )}
     </>
   )
 }

@@ -39,12 +39,12 @@ const ChatHeader: React.FC<{ onChange: (searchValue: string) => void }> = ({
     <div className="">
       <div className="flex justify-between items-center">
         <label className="font-bold text-white">Chats</label>
-        <div className="flex items-center  gap-4 text-[12px]">
+        <div className="flex items-center ml-2 gap-2 text-[12px]">
           <div
             onClick={() => setIsPersonalActive(true)}
             className={`${
               isPersonalActive
-                ? "bg-primary text-white px-4 "
+                ? "bg-primary  text-white px-4 "
                 : " text-red-200 "
             }   p-2 rounded-md cursor-pointer`}
           >
@@ -100,7 +100,7 @@ const MessageItem: React.FC<IMessageItem> = ({
         extends: "none",
         templates: {
           main: {
-            html: "<loading-screen id='babylon-loading-screen' style='height: 100%;width: 100%; position: absolute;left: 0;z-index: 100;opacity: 1;pointer-events: none;display: flex;justify-content: center;align-items: center;-webkit-transition: opacity 1s ease;-moz-transition: opacity 1s ease;transition: opacity 1s ease;'></loading-screen>  <canvas id='my-babylon-canvas' style='height: 100%;width: 100%;flex: 1;touch-action: none;' class='babylonjs-canvas' touch-action='none'></canvas>",
+            html: "<loading-screen id='babylon-loading-screen' style='height: 100%;width: 100%; position: absolute;left: 0;opacity: 1;pointer-events: none;display: flex;justify-content: center;align-items: center;-webkit-transition: opacity 1s ease;-moz-transition: opacity 1s ease;transition: opacity 1s ease;'></loading-screen>  <canvas id='my-babylon-canvas' style='height: 100%;width: 100%;flex: 1;touch-action: none;' class='babylonjs-canvas' touch-action='none'></canvas>",
             params: {
               ["no-escape"]: true,
               ["babylon-font"]: `https://viewer.babylonjs.com/babylon.woff`,
@@ -154,36 +154,36 @@ const MessageItem: React.FC<IMessageItem> = ({
       onPointerOverCapture={onPointerOverCapture}
       className={`mt-2 mr-1 ${
         isActive ? "bg-[#2b2b2b] " : ""
-      } px-3 py-2 cursor-pointer overflow-x-hidden hover:bg-[#2b2b2b] transition duration-150 ease-in-out rounded-[10px]`}
+      } pl-2.5 px-2.5 py-3 mb-1 cursor-pointer overflow-x-hidden hover:bg-[#2b2b2b] transition duration-150 ease-in-out rounded-[10px]`}
     >
-      <div className="flex items-center gap-2  ">
+      <div className="flex items-center gap-1.5  ">
         <div className="w-[25%] ">
           {!avatar.includes(".glb") && (
             <Image
               src={avatar}
-              width={40}
-              height={40}
+              width={36}
+              height={36}
               alt="Avatar"
               className="rounded-full"
             />
           )}
           {avatar.includes(".glb") && (
             <Box
-              width="40px"
-              height="40px"
+              width="33px"
+              height="33px"
               // borderRadius="13.7px"
-              className="rounded-full"
+              className="rounded-full "
               borderColor="white"
               border="1px solid"
             >
-              <div
+              {/* <div
                 id="babylon-element-chat-index"
-                style={{ width: "100%", height: "100%", margin: "auto" }}
-              ></div>
+                // style={{ width: "100%", height: "100%", margin: "auto" }}
+              ></div> */}
             </Box>
           )}
         </div>
-        <div className="w-[70%] cursor-pointer">
+        <div className="w-full cursor-pointer ">
           <div className="flex justify-between">
             <label className="text-white cursor-pointer text-bold text-[13px]">
               {name.substring(0, 18)}
@@ -193,14 +193,14 @@ const MessageItem: React.FC<IMessageItem> = ({
                             <label className='text-white opacity-[30%] text-[13px]'>{time}</label>
                         } */}
           </div>
-          <div className="text-[12px] text-lighter">
+          <div className="text-[11px] w-fit">
             {status === "isTyping" && (
               <label className="text-primary">Typing...</label>
             )}
             {status !== "isTyping" && (
-              <label className="text-white cursor-pointer opacity-[30%] mt-1">
-                {message.substring(0, 18)} ...
-              </label>
+              <span className="text-white w-full cursor-pointer opacity-[30%] mt-1">
+                {message.substring(0, 20)} ...
+              </span>
             )}
           </div>
         </div>
@@ -549,56 +549,61 @@ const Chat: React.FC = () => {
   }
 
   return (
-    <SmoothCorners
-      corners="60,30"
-      className="w-full overflow-x-hidden h-[100%]"
-    >
-      <div className="w-full h-[100%]  bg-black-dark  rounded-[20px]  overflow-x-hidden flex gap-2 ">
-        {!chat.minimized && sidebar.collapsed && (
-          <SmoothCorners
-            corners="32,42"
-            borderRadius="20px"
-            className="w-[45%] h-full"
-          >
-            <div
-              className="w-full  overflow-x-hidden h-full rounded-[20px] bg-black-light  p-4"
-              style={
-                {
-                  // width: (chat.minimized) ? "0%" : ""
-                }
+    <div className="w-full h-full z-0  bg-black-dark  rounded-[20px]   overflow-x-hidden flex gap-2 ">
+      {!chat.minimized && sidebar.collapsed && (
+        <SmoothCorners
+          corners="32,42"
+          borderRadius="20px"
+          className="w-[45%] h-full"
+        >
+          <div
+            className="w-full  overflow-x-hidden overflow-y-hidden h-full rounded-[20px] bg-black-light  p-4"
+            style={
+              {
+                // width: (chat.minimized) ? "0%" : ""
               }
-            >
-              <ChatHeader onChange={handleSearchName} />
+            }
+          >
+            <ChatHeader onChange={handleSearchName} />
 
-              <div className="h-[80%] ">
-                <div className="flex gap-2 mt-4 ">
-                  {/* <Image src="/assets/icons/pin-icon.svg" alt="Pin" width={13} height={13} /> */}
-                  {/* <label className='text-[14px] text-white opacity-[15%]'>Pinned</label> */}
-                  <Image
-                    src="/assets/icons/fill-icon.svg"
-                    alt="Pin"
-                    width={13}
-                    height={13}
-                  />
-                  <label className="text-[14px] pb-1 relative top-[2px] text-white opacity-[15%]">
-                    All Chats
-                  </label>
-                </div>
+            <div className="h-[80%]">
+              <div className="flex gap-2 mt-4 ">
+                <Image
+                  src="/assets/icons/pin-icon.svg"
+                  alt="Pin"
+                  width={13}
+                  height={13}
+                />
 
-                <div className="h-full scroller overflow-y-scroll">
-                  {chatsClone.map((message, index) => (
-                    <MessageItem
-                      onClickCapture={() => handleCapture(index)}
-                      key={index}
-                      {...message}
-                      isActive={activeMessage === index ? true : false}
-                      onClick={() => handleSetActiveMessage(index)}
-                    />
-                  ))}
-                </div>
+                <label className="text-[14px] pb-1 relative top-[2px] text-white opacity-[15%]">
+                  Pinned
+                </label>
               </div>
+              <div className="flex gap-2 my-1">
+                <Image
+                  src="/assets/icons/fill-icon.svg"
+                  alt="All"
+                  width={13}
+                  height={13}
+                />
+                <label className="text-[14px] pb-1 relative top-[2px] text-white opacity-[15%]">
+                  All Chats
+                </label>
+              </div>
+              <div className="h-full gap-1 overflow-y-scroll pb-2.5 w-[105%]">
+                {chatsClone.map((message, index) => (
+                  <MessageItem
+                    onClickCapture={() => handleCapture(index)}
+                    key={index}
+                    {...message}
+                    isActive={activeMessage === index ? true : false}
+                    onClick={() => handleSetActiveMessage(index)}
+                  />
+                ))}
+              </div>
+            </div>
 
-              {/* <div>
+            {/* <div>
                         <div className='flex gap-2 mt-4'>
                             <Image src="/assets/icons/fill-icon.svg" alt="Pin" width={13} height={13} />
                             <label className='text-[14px] text-white opacity-[15%]'>All Charts</label>
@@ -610,19 +615,18 @@ const Chat: React.FC = () => {
                             }
                         </div>
                     </div> */}
-            </div>
-          </SmoothCorners>
-        )}
-        <div
-          className="w-[55%] h-full overflow-x-hidden"
-          style={{
-            width: chat.minimized || !sidebar.collapsed ? "100%" : "",
-          }}
-        >
-          <ChatRoom activeMessage={chats[activeMessage]} />
-        </div>
+          </div>
+        </SmoothCorners>
+      )}
+      <div
+        className="w-full  overflow-y-hidden h-full z-10 overflow-x-hidden"
+        style={{
+          width: chat.minimized || !sidebar.collapsed ? "100%" : "",
+        }}
+      >
+        <ChatRoom activeMessage={chats[activeMessage]} />
       </div>
-    </SmoothCorners>
+    </div>
   )
 }
 

@@ -7,7 +7,7 @@ export interface Props {
 const SearchInput: React.FC<Props> = ({ onChange }) => {
   return (
     <div
-      className={` px-5  bg-black-dark py-2 w-full rounded-md flex items-center  gap-2`}
+      className={` px-5  bg-black-dark py-1.5 w-full rounded-md flex items-center  gap-2`}
     >
       <div className="relative  -left-[6px] mt-1  ">
         {/* <Image
@@ -44,7 +44,7 @@ const SearchInput: React.FC<Props> = ({ onChange }) => {
         <input
           type="text"
           placeholder="Search user"
-          className="placeholder-[#575757] w-full relative right-2  bg-black-dark placeholder-opacity-80 text-white   text-[15px] focus:outline-none"
+          className="placeholder-[#575757] w-full relative right-2  bg-black-dark placeholder-opacity-80 text-white   text-[14px] focus:outline-none"
           style={{}}
           onChange={(e) => onChange && onChange(e.target.value)}
         />
