@@ -152,9 +152,9 @@ const MessageItem: React.FC<IMessageItem> = ({
       onClick={onClick}
       onPointerOver={onPointerOver}
       onPointerOverCapture={onPointerOverCapture}
-      className={`mt-2 mr-1 ${
+      className={`mt-2  ${
         isActive ? "bg-[#2b2b2b] " : ""
-      } pl-2.5 px-2.5 py-3 mb-1 cursor-pointer overflow-x-hidden hover:bg-[#2b2b2b] transition duration-150 ease-in-out rounded-[10px]`}
+      }  px-2 py-3  mb-1 cursor-pointer  overflow-x-hidden hover:bg-[#2b2b2b] transition duration-150 ease-in-out rounded-[10px]`}
     >
       <div className="flex items-center gap-1.5  ">
         <div className="w-[25%] ">
@@ -193,13 +193,13 @@ const MessageItem: React.FC<IMessageItem> = ({
                             <label className='text-white opacity-[30%] text-[13px]'>{time}</label>
                         } */}
           </div>
-          <div className="text-[11px] w-fit">
+          <div className="text-[12px] w-fit">
             {status === "isTyping" && (
               <label className="text-primary">Typing...</label>
             )}
             {status !== "isTyping" && (
               <span className="text-white w-full cursor-pointer opacity-[30%] mt-1">
-                {message.substring(0, 20)} ...
+                {message.substring(0, 22)} ...
               </span>
             )}
           </div>
@@ -221,6 +221,7 @@ const Chat: React.FC = () => {
   const [profiles, setProfiles] = useState<Array<Feed>>([])
   const [prevChats, setPrevChats] = useState<string>()
   const [chatReceiver, setChatReceiver] = useState<string>("")
+  const [isScroll, setIsScroll] = useState<boolean>(true)
   const { messages } = useSelector(selectMessages)
 
   useEffect(() => {
@@ -228,6 +229,15 @@ const Chat: React.FC = () => {
       fetchUsers()
     }
   }, [nearState.pnftContract])
+
+  const handleScroll = (event: any) => {
+    let isScrolling
+    setIsScroll(true)
+    clearTimeout(isScrolling)
+    isScrolling = setTimeout(() => {
+      setIsScroll(false)
+    }, 4000)
+  }
 
   const fetchUsers = async () => {
     const posts = await nearState.pnftContract.get_all_posts({
@@ -590,7 +600,14 @@ const Chat: React.FC = () => {
                   All Chats
                 </label>
               </div>
-              <div className="h-full gap-1 overflow-y-scroll pb-2.5 w-[105%]">
+              <div
+                onScroll={handleScroll}
+                className={`h-full gap-1 overflow-y-scroll pb-2.5  2xl:mr-4 w-[110%] ${
+                  isScroll
+                    ? "transition ease-in-out duration-300"
+                    : "scrollbar-hide transition ease-in-out duration-300"
+                }`}
+              >
                 {chatsClone.map((message, index) => (
                   <MessageItem
                     onClickCapture={() => handleCapture(index)}

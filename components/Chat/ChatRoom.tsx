@@ -4,8 +4,10 @@ import { EMessageType } from "../../enums/EMessageType"
 import { useDispatch, useSelector } from "../../store/store"
 import {
   collapseChat,
+  expandChat,
   minimizeChat,
   selectModules,
+  triggerSidebar,
 } from "../../store/slices/modulesSlices"
 import SendTokens from "../SendTokens"
 import { IMessageItem } from "."
@@ -14,10 +16,12 @@ import {
   selectMessages,
   setDirectMessages,
 } from "../../store/slices/messagesSlice"
+
 import { Box, Flex, Text } from "@chakra-ui/react"
 import { SmoothCorners } from "react-smooth-corners"
 import Image from "next/image"
 import { Transaction } from "../../components/SendTokens/ui/Transaction"
+import { ContactCard } from "../../components/Profiles/ContactCard"
 
 const PrimaryHeader: React.FC = () => {
   const { chat } = useSelector(selectModules)
@@ -84,6 +88,10 @@ const PrimaryHeader: React.FC = () => {
 const SecondaryHeader: React.FC<{
   activeMessage: IMessageItem
 }> = ({ activeMessage }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const { chat, sidebar } = useSelector(selectModules)
+  const dispatch = useDispatch()
+
   useEffect(() => {
     const initBabylon = async () => {
       const BabylonViewer = await import("babylonjs-viewer")
@@ -145,6 +153,19 @@ const SecondaryHeader: React.FC<{
       className="flex mt-3 justify-between   relative bottom-2 mb-1"
     >
       <Flex alignItems="center" className="relative left-1   ">
+        {!sidebar.collapsed && (
+          <div
+            className="cursor-pointer ml-2 mr-2"
+            // onClick={() => dispatch(triggerSidebar()) }
+          >
+            <Image
+              src={"/icons/collapse.svg"}
+              width={5.5}
+              height={11}
+              layout="fixed"
+            />
+          </div>
+        )}
         {!activeMessage?.avatar.includes(".glb") && (
           <Image
             src={activeMessage?.avatar || "/assets/images/avatar-1.svg"}
@@ -152,7 +173,8 @@ const SecondaryHeader: React.FC<{
             height="27.4px"
             alt="Avatar"
             priority
-            className="rounded-full"
+            className="rounded-full cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
           />
         )}
         {activeMessage?.avatar.includes(".glb") && (
@@ -162,6 +184,7 @@ const SecondaryHeader: React.FC<{
             borderRadius="13.7px"
             borderColor="white"
             border="1px solid"
+            onClick={() => setIsModalOpen(true)}
           >
             <div
               id="babylon-element-chat-room"
@@ -197,6 +220,10 @@ const SecondaryHeader: React.FC<{
             Last seen recently
           </Text>
         </Flex>
+        <ContactCard
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
       </Flex>
       <Flex gap="14px" className="relative right-3 ">
         <Image
@@ -646,6 +673,7 @@ const ChatRoom: React.FC<{
             time={"21.37"}
             situation={"Received"}
           /> */}
+          {/* <ContactCard /> */}
           <SendMessage
             onSend={() => setInitializeSendToken(true)}
             activeReceiver={activeMessage}
