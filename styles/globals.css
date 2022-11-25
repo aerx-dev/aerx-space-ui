@@ -198,7 +198,6 @@ a {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#332b8d",endColorstr="#1d1d1d",GradientType=1);
 }
 
-
 ul {
-  flex-wrap: nowrap!important;
+  flex-wrap: nowrap !important;
 }

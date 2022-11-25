@@ -36,10 +36,12 @@ const Flow: React.FC = () => {
         <Box top="0" left="0" position="absolute" zIndex="1">
           <Index />
         </Box>
-        {!sidebar.collapsed && <div className="w-[15%] "></div>}
+        {!sidebar.collapsed && <div className="w-[15%] ml-16 2xl:ml-0"></div>}
         {!chat.collapsed && (
           <div
-            className=" w-min  mr-8 2xl:mr-0  h-[94vh] ml-14   "
+            className={` w-min -mt-2 mb-3 2xl:mb-0  mr-8 2xl:mr-0  h-[94vh] ml-14  ${
+              sidebar.collapsed ? "" : ""
+            } `}
             style={{
               width: chat.minimized || !sidebar.collapsed ? "19.5%" : "",
               // marginLeft: chat.minimized ? "5%" : "",
