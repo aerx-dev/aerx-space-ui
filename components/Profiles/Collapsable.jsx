@@ -3,7 +3,7 @@ import { Box, Image, Text, Center, Flex, Button } from "@chakra-ui/react";
 import { useDispatch } from "../../store/store";
 import LogOut from "./LogOut";
 
-import { expandChat, expandFlow } from "../../store/slices/modulesSlices";
+import { expandChat, expandFlow, expandCollections } from "../../store/slices/modulesSlices";
 
 function collapsable(props) {
   const [hideProfile, setHideProfile] = useState(false);
@@ -103,7 +103,7 @@ function collapsable(props) {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            onClick={props.wallet}
+            onClick={() => dispatch(expandCollections())}
             cursor="pointer"
           >
             <Image w="20px" h="20px" src="resources/side-4.png" />
